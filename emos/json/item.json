@@ -1,0 +1,26 @@
+{
+	"item" : 
+	[
+		{
+			"name" : "Artichoke Dip"
+			,"price" : 8.25
+			,"category" : "categories.category[0]"
+			, "imagesrc" : "../foodimg/food1.jpg"
+			,"description" : "Served with toasted pita points"
+		}
+		,{
+			"name" : "Bruschetta"
+			,"price" : 8.00
+			,"category" : "categories.category[0]"
+			,"imagesrc" : "../foodimg/food1.jpg"
+			,"description" : "6 slices of Baguette served with fresh tomato, Basil and fresh Mozzarella for topping"
+		}
+		,{ 
+			"name" : "Hummus"
+			,"price" : 7.75
+			,"category" : "categories.category[0]"
+			,"imagesrc" : "../foodimg/food2.jpg"
+			,"description" : "Flavorful in house Hummus served with toasted pita points"
+		}
+	]
+}

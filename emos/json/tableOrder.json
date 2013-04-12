@@ -1,0 +1,11 @@
+{
+	"date" : ""
+	,"staff" : ""
+	,"table" : ""
+	,"orders" : [ 
+	{
+		"orderItems"  : [{}]
+	}]
+	,'finished' : false
+	,'paided' : false
+}

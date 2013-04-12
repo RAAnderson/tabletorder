@@ -1,0 +1,10 @@
+{
+	date: '';
+	orderItems[] : 
+	{
+		'name' : 'Artichoke Dip'
+		,'price' : 8.25
+		,'category' : categories.category[0]
+		,'description' : 'Served with toasted pita points'
+	}
+}

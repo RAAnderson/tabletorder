@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Electronic Menu Ordering System</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+			</button>
+			<a id="home" class="brand" href="#">Electronic Menu Ordering System</a>
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li><a id="navmenuItems" href="#items">Menu Items</a></li>
+					<li><a id="navcategories" href="#categories">Categories</a></li>
+					<li><a id="navtables" href="#tables">Tables</a></li>
+					<!--<li><a id="navorders" href="#orders">Orders</a></li>-->
+					<li><a id="navstaff" href="#staff">Staff</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+    </div>
+    <div class="container">
+		<!-- Ajax Loader -->
+		<img id="ajaxloader" alt="loading" src="img/ajax-loader.gif" />
+		<!-- Dashboard -->
+		<div id="dashboardContainer">
+			<h1>Dashboard</h1>
+			<div class="dashTableOrder">
+			<h3>Table: A1</h3>
+			<ul id="orderItems">
+				<li>1x Artichoke Dip<div class="oprice">$ 8.25</div></li>
+				<li>2x Caprese Grill<div class="oprice">$ 8.00</div></li>
+				<li>2x Coffee<div class="oprice">$ 2.00</div></li>
+				<li>&nbsp;</li>
+				<li>Total: $ 28.25<li>
+			</ul>
+			<div class="btn-group"><button type="button" class="btn">Edit Order</button><button type="button" class="btn">Table Order Done</button></div>
+			</div>
+			<div class="dashTableOrder">
+			<h3>Table: A2</h3>
+			<ul id="orderItems">
+				<li>2x Grilled Portabella <div class="oprice">$ 8.50</div></li>
+				<li>2x Waters<div class="oprice">$ 0.00</div></li>
+				<li>&nbsp;</li>
+				<li>Total: $ 19.00<li>
+			</ul>
+			<div class="btn-group"><button type="button" class="btn">Edit Order</button><button type="button" class="btn">Table Order Done</button></div>
+			</div>
+			<div class="dashTableOrder">
+			<h3>Table: A3</h3>
+			<ul id="orderItems">
+				<li>1x Downtowner <div class="oprice">$ 8.50</div></li>
+				<li>1x Pepperoni Pizza<div class="oprice">$ 9.25</div></li>
+				<li>1x Water<div class="oprice">$ 0.00</div></li>
+				<li>3x French Soda<div class="oprice">$ 3.25</div></li>
+				<li>&nbsp;</li>
+				<li>Total: $ 27.50<li>
+			</ul>
+			<div class="btn-group "><button type="button" class="btn">Edit Order</button><button type="button" class="btn">Table Order Done</button></div>
+			</div>
+		</div>
+		<!-- Categories -->
+		<div id="categoriesContainer">
+			<h1>Categories</h1>
+			<ul id="categories">
+				<!-- list of categories -->
+			</ul>
+			</div>
+			<!-- Tables -->
+			<div id="tablesContainer">
+			<h1>Tables</h1>
+			<ul id="tables">
+				<!-- table list -->
+			</ul>
+			</div>
+			<!-- Menu Items -->
+			<div id="itemsContainer">
+			<h1>Menu Items</h1>
+			<div id="items">
+				<div class="accordion" id="accordion3">
+				  <div class="accordion-group">
+					<div class="accordion-heading">
+					  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Artichoke Dip</a>
+					</div>
+					<div id="collapseOne" class="accordion-body collapse in">
+					  <div class="accordion-inner">
+					  <table>
+					  <tr>
+						<td style="width: 100px;">Name: </td>
+						<td style="padding-right: 100px"><input type="text" data-provide="typeahead" value="Artichoke Dip" /></td>
+						<td>Price: </td><td>$<input type="text" style="width: 100px" data-provide="typeahead" value="8.25" /></td>
+					</tr>
+					<tr>
+						<td style="width: 100px;">Category: </td><td><select>
+											  <option value="Appetizers" selected>Appetizers</option>
+											  <option value="Sandwiches">Sandwiches</option>
+											  <option value="Wraps">Wraps</option>
+											  <option value="Salads">Salads</option>
+											  <option value="Soups">Soups</option>
+											  <option value="Pizza">Pizza</option>
+											  <option value="Desserts">Desserts</option>
+											  <option value="Drinks">Drinks</option>
+											  <option value="Others">Other</option>
+											</select></td>
+						</tr>
+						<tr><td>Description:</td><td><textarea name="comments" cols="100" rows="3">Served with toasted pita points</textarea></td>
+						</td></tr>
+						</table>
+						<div class="btn-group"><button type="button" class="btn">Save</button><button type="button" class="btn">Delete</button></div>
+					  </div>
+					</div>
+				  </div>
+				  <div class="accordion-group">
+					<div class="accordion-heading">
+					  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">Bruschetta</a>
+					</div>
+					<div id="collapseTwo" class="accordion-body collapse">
+					  <div class="accordion-inner">
+						 <table>
+					  <tr>
+						<td style="width: 100px;">Name: </td>
+						<td style="padding-right: 100px"><input type="text" data-provide="typeahead" value="Bruschetta" /></td>
+						<td>Price: </td><td>$<input type="text" style="width: 100px" data-provide="typeahead" value="8.00" /></td>
+					</tr>
+					<tr>
+						<td style="width: 100px;">Category: </td><td><select>
+											  <option value="Appetizers" selected>Appetizers</option>
+											  <option value="Sandwiches">Sandwiches</option>
+											  <option value="Wraps">Wraps</option>
+											  <option value="Salads">Salads</option>
+											  <option value="Soups">Soups</option>
+											  <option value="Pizza">Pizza</option>
+											  <option value="Desserts">Desserts</option>
+											  <option value="Drinks">Drinks</option>
+											  <option value="Others">Other</option>
+											</select></td>
+						</tr>
+						<tr><td>Description:</td><td><textarea name="comments" cols="100" rows="3">6 slices of Baguette served with fresh tomato, Basil and fresh Mozzarella for topping</textarea></td>
+						</td></tr>
+						</table>
+						<div class="btn-group"><button type="button" class="btn">Save</button><button type="button" class="btn">Delete</button></div>
+					  </div>
+					</div>
+				  </div>
+				  <div class="accordion-group">
+					<div class="accordion-heading">
+					  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseThree">Hummus</a>
+					</div>
+					<div id="collapseThree" class="accordion-body collapse">
+					  <div class="accordion-inner">
+						 <table>
+					  <tr>
+						<td style="width: 100px;">Name: </td>
+						<td style="padding-right: 100px"><input type="text" data-provide="typeahead" value="Hummus" /></td>
+						<td>Price: </td><td>$<input type="text" style="width: 100px" data-provide="typeahead" value="7.75" /></td>
+					</tr>
+					<tr>
+						<td style="width: 100px;">Category: </td><td><select>
+											  <option value="Appetizers" selected>Appetizers</option>
+											  <option value="Sandwiches">Sandwiches</option>
+											  <option value="Wraps">Wraps</option>
+											  <option value="Salads">Salads</option>
+											  <option value="Soups">Soups</option>
+											  <option value="Pizza">Pizza</option>
+											  <option value="Desserts">Desserts</option>
+											  <option value="Drinks">Drinks</option>
+											  <option value="Others">Other</option>
+											</select></td>
+						</tr>
+						<tr><td>Description:</td><td><textarea name="comments" cols="100" rows="3">Flavorful in house Hummus served with toasted pita points</textarea></td>
+						</td></tr>
+						</table>
+						<div class="btn-group"><button type="button" class="btn">Save</button><button type="button" class="btn">Delete</button></div>
+					  </div>
+					</div>
+				  </div>
+				  <div class="accordion-group">
+					<div class="accordion-heading">
+					  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseFour">New Item</a>
+					</div>
+					<div id="collapseFour" class="accordion-body collapse">
+					  <div class="accordion-inner">
+						 <table>
+					  <tr>
+						<td style="width: 100px;">Name: </td>
+						<td style="padding-right: 100px"><input type="text" data-provide="typeahead" value="" /></td>
+						<td>Price: </td><td>$<input type="text" style="width: 100px" data-provide="typeahead" value="" /></td>
+					</tr>
+					<tr>
+						<td style="width: 100px;">Category: </td><td><select>
+											  <option value="Appetizers" selected>Appetizers</option>
+											  <option value="Sandwiches">Sandwiches</option>
+											  <option value="Wraps">Wraps</option>
+											  <option value="Salads">Salads</option>
+											  <option value="Soups">Soups</option>
+											  <option value="Pizza">Pizza</option>
+											  <option value="Desserts">Desserts</option>
+											  <option value="Drinks">Drinks</option>
+											  <option value="Others">Other</option>
+											</select></td>
+						</tr>
+						<tr><td>Description:</td><td><textarea name="comments" cols="100" rows="3"></textarea></td>
+						</td></tr>
+						</table>
+						<div class="btn-group"><button type="button" class="btn">Create New Item</button></div>
+					  </div>
+					</div>
+					
+				  </div>
+				</div>
+			</div>
+			</div>
+			<!-- Tables -->
+			<div id="staffContainer">
+			<h1>Staff</h1>
+			<ul id="staff">
+				<li>Admin<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
+				<li>Jessica<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
+				<li>Joel<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
+				<li>Kayla<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
+				<li>Kendra<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
+				<li>Mustafa<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
+				<li>None<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
+				<li>Rick<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
+				<li><input type="text" data-provide="typeahead" /><div class="btn-group"><button type="button" class="btn">Add New Staff</button></div></li>
+			</ul>
+			</div>
+		</div>
+    </div>
+	<!-- Alert Confirm Box -->
+	<div id="confirmModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Please Confirm the Following</h3>
+		</div>
+		<div class="modal-body"><p id="modalContent">Are you</p></div><div class="modal-footer">
+		<button id="confirmed" class="btn btn-primary">OK</button>
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  </div>
+</div>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	 <script src="js/main.js"></script>
+	 <script type="text/javascript">
+		resetAll();
+		$('#dashboardContainer').slideDown();
+	 </script>
+  </body>
+</html>
