@@ -158,6 +158,55 @@ http://localhost:5010/ticket
 
 ////////////////////////////////////////////
 
+http://localhost:5010/table
+
+{
+"requestType":"list"
+}
+
+{
+"requestType":"read",
+"tableId":"B2"
+}
+
+{
+"requestType":"create",
+"tableId":"B2",
+"location":"North East Wing",
+"totalSeats":"6"
+}
+
+{
+"requestType":"update",
+"tableId":"B2",
+"location":"West Wing",
+"totalSeats":"4"
+}
+
+{
+"requestType":"delete",
+"tableId":"B2"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 */

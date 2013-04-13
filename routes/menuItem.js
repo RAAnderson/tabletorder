@@ -24,7 +24,7 @@ exports.menuItemHandler = function(req, res){
 		  
 		  MenuItem.findById(id, function(err, doc) {
 		    if(!err && doc) {
-		      res.json(200, doc);
+		      res.json(200, {object: doc});
 		    } else if(err) {
 		      res.json(500, { message: "Error loading menuItem." + err});
 		    } else {

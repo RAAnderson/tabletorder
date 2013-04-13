@@ -4,7 +4,6 @@ var mongoose = require('mongoose')
 var menuItemSchema = new Schema ({
 	menuItemId : 	{ type: String }
 	, menuCatId : 	{ type: Number }
-	, status : 		{ type: Boolean }
 	, foodType : 	{ type: String, trim: true }
 	, title : 		{ type: String, trim: true }
 	, description : { type: String }

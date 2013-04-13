@@ -53,7 +53,7 @@ exports.ticketHandler = function(req, res){
 		      newTicket.save(function(err) {
 
 		        if(!err) {
-		          res.json({ message:newTicket});    
+		          res.json(201, { object: newTicket});    
 		        } else {
 		          res.json(500, {message: "Could not create Ticket. Error: " + err});
 		        }
@@ -84,7 +84,7 @@ exports.ticketHandler = function(req, res){
 
 	        doc.save(function(err) {
 	          if(!err) {
-	            res.json({message:doc});    
+	            res.json(200, {object: doc});    
 	          } else {
 	            res.json(500, {message: "Could not update ticket. " + err});
 	          }  

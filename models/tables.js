@@ -6,7 +6,7 @@ var mongoose = require('mongoose')
 
 /// Represents every food item orderd
 var tableSchema = new Schema({
-	tableId : 		{ type: Number }
+	tableId : 		{ type: String }
 	, location : 	{ type: String }
 	, totalSeats : 	{ type: Number }
 });

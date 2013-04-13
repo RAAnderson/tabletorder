@@ -52,7 +52,7 @@ exports.orderHandler = function(req, res){
 		      
 		      newOrder.save(function(err) {
 		        if(!err) {
-		          res.json({message:newOrder});    
+		          res.json(201, {object: newOrder});    
 		        } else {
 		          res.json(500, {message: "Could not create Order. Error: " + err});
 		        }
@@ -85,7 +85,7 @@ exports.orderHandler = function(req, res){
 
 	        doc.save(function(err) {
 	          if(!err) {
-	            res.json({message:doc});    
+	            res.json(200, {object: doc});    
 	          } else {
 	            res.json(500, {message: "Could not update order. " + err});
 	          }  
@@ -103,7 +103,7 @@ exports.orderHandler = function(req, res){
 		  	Order.findById(id, function(err, doc) {
 		    if(!err && doc) {
 		      doc.remove();
-		      res.json(200, { message: doc});
+		      res.json(200, { message: "successfuly deleted"});
 		    } else if(!err) {
 		      res.json(404, { message: "Could not find order."});
 		    } else {
