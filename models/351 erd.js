@@ -2,7 +2,7 @@
 
 
 var menu = {
-	MenuItemId : 	{ type: Number }
+	MenuItemId : 	{ type: String }
 	, MenuCatId : 	{ type: Number }
 	, Status : 		{ type: Boolean }
 	, FoodType : 	{ type: String, trim: true }
@@ -17,7 +17,7 @@ var menu = {
 
 ///
 var employee = {
-	EmployeeId : 	{ type: Number }
+	EmployeeId : 	{ type: String }
 	, JobTitle : 	{ type: String, trim: true }
 	, FirstName : 	{ type: String, trim: true }
 	, LastName : 	{ type: String, trim: true }
@@ -31,21 +31,21 @@ var employee = {
 
 /// A table can have multiple Orders, and order represents groups of payment
 var Order = {
-	OrderId : 		{ type: Number }
+	OrderId : 		{ type: String }
 	, TableId : 	{ type: Number }
-	, EmployeeId : 	{ type: Number }
+	, EmployeeId : 	{ type: String }
 	, Cost : 		{ type: Number }
 	, Payment : 	{ type: Number }
 	, Tip : 		{ type: Number }
 	, date: 		{ type: Date, default: Date.now }
 }
 
-/// Represents every persons 
+/// Represents every food item orderd
 var Ticket = {
-	OrderId : 			{ type: Number }
+	OrderId : 			{ type: String }
 	, TicketStatusId : 	{ type: Number }   //Used to show many status's 1-5...
-	, EmployeeId : 		{ type: Number }
-	, MenuItemId : 		{ type: Number }
+	, EmployeeId : 		{ type: String }
+	, MenuItemId : 		{ type: String }
 	, Customization : 	{ type: String }  //Used for typing in customizations to an order
 	, date: 			{ type: Date, default: Date.now }
 }

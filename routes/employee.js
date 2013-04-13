@@ -14,7 +14,7 @@ exports.employeeHandler = function(req, res){
 
 	var requestType = req.body.requestType;
 
-	if (requestType === "list") {
+	if (requestType == "list") {
 		  Employee.find({}, function(err, docs) {
 		    if(!err) {
 		      res.json(200, { employees: docs });  
@@ -23,7 +23,7 @@ exports.employeeHandler = function(req, res){
 		    }
 		  });
 
-	} else if (requestType === "read") {
+	} else if (requestType == "read") {
 
 		var id = req.body._id; // The id of the Employee the user wants to look up. 
 		  
@@ -37,7 +37,7 @@ exports.employeeHandler = function(req, res){
 		    }
 		  });
 
-	} else if (requestType === "create") {
+	} else if (requestType == "create") {
 
 		  var userName = req.body.username; // Name of Employee. 
 
@@ -76,7 +76,7 @@ exports.employeeHandler = function(req, res){
 		    } 
 		  });
 
-	} else if (requestType === "update") {
+	} else if (requestType == "update") {
 
 	  var id = req.body._id; 
 
@@ -107,7 +107,7 @@ exports.employeeHandler = function(req, res){
 	      }
 	    });
 
-	} else if (requestType === "delete") {
+	} else if (requestType == "delete") {
 
 		var id = req.body._id; 
 		  	Employee.findById(id, function(err, doc) {

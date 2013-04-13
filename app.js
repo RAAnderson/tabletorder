@@ -6,6 +6,9 @@
 var express = require('express')
   , routes = require('./routes')
   , employee = require('./routes/employee')
+  , menuItem = require('./routes/menuItem')
+  , order = require('./routes/order')
+  , ticket = require('./routes/ticket')
   , http = require('http')
   , path = require('path')
   , mongoose = require('mongoose');
@@ -29,6 +32,9 @@ if ('development' == app.get('env')) {
 //app.get('/', routes.index);
 //app.get('/users', user.list);
 app.post('/employee', employee.employeeHandler);
+app.post('/menuItem', menuItem.menuItemHandler);
+app.post('/order', order.orderHandler);
+app.post('/ticket', ticket.ticketHandler);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
