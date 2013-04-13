@@ -2,12 +2,9 @@
 
 
 var menu = {
-	MenuCat :
-	{
-		Title : 		{ type: String, trim: true }
-		, Description : { type: String }
-		, Status : 		{ type: Boolean }
-	}
+	MenuItemId : 	{ type: Number }
+	, MenuCatId : 	{ type: Number }
+	, Status : 		{ type: Boolean }
 	, FoodType : 	{ type: String, trim: true }
 	, Title : 		{ type: String, trim: true }
 	, Description : { type: String }
@@ -28,16 +25,14 @@ var employee = {
 	, Zip : 		{ type: Number }
 	, State : 		{ type: String, trim: true }
 	, PhoneNumber : { type: Number, trim: true }
+	, UserName : 	{ type: Number, trim: true }
+	, Password : 	{ type: Number, trim: true }
 }
 
 /// A table can have multiple Orders, and order represents groups of payment
 var Order = {
 	OrderId : 		{ type: Number }
-	, Table : 		
-	{
-		Location : 		{ type: String }
-		, TotalSeats : 	{ type: Number }
-	}
+	, TableId : 	{ type: Number }
 	, EmployeeId : 	{ type: Number }
 	, Cost : 		{ type: Number }
 	, Payment : 	{ type: Number }
@@ -46,8 +41,8 @@ var Order = {
 
 /// Represents every persons 
 var Ticket = {
-	TicketStatusId : 	{ type: Number }   //Used to show many status's 1-5...
-	, OrderId : 		{ type: Number }
+	OrderId : 			{ type: Number }
+	, TicketStatusId : 	{ type: Number }   //Used to show many status's 1-5...
 	, EmployeeId : 		{ type: Number }
 	, MenuItemId : 		{ type: Number }
 	, Customization : 	{ type: String }  //Used for typing in customizations to an order
@@ -68,7 +63,17 @@ var MenuCatSchema = new Schema({
 		, Status : 		{ type: Boolean }
 })
 
+var Table {
+	TableId : 		{ type: Number }
+	, Location : 	{ type: String }
+	, TotalSeats : 	{ type: Number }
+}
 
 
-
+var MenuCat {
+		MenuCatId : 	{ type: Number }
+		, Title : 		{ type: String, trim: true }
+		, Description : { type: String }
+		, Status : 		{ type: Boolean }
+	}
 
