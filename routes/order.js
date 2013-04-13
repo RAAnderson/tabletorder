@@ -48,10 +48,11 @@ exports.orderHandler = function(req, res){
 			newOrder.cost = req.body.cost;
 			newOrder.payment = req.body.payment;
 			newOrder.tip = req.body.tip;
+			newOrder.status = req.body.status;
 		      
 		      newOrder.save(function(err) {
 		        if(!err) {
-		          res.json(newOrder);    
+		          res.json({message:newOrder});    
 		        } else {
 		          res.json(500, {message: "Could not create Order. Error: " + err});
 		        }
@@ -80,10 +81,11 @@ exports.orderHandler = function(req, res){
 			doc.cost = req.body.cost;
 			doc.payment = req.body.payment;
 			doc.tip = req.body.tip;
+			doc.status = req.body.status;
 
 	        doc.save(function(err) {
 	          if(!err) {
-	            res.json(doc);    
+	            res.json({message:doc});    
 	          } else {
 	            res.json(500, {message: "Could not update order. " + err});
 	          }  
@@ -101,7 +103,7 @@ exports.orderHandler = function(req, res){
 		  	Order.findById(id, function(err, doc) {
 		    if(!err && doc) {
 		      doc.remove();
-		      res.json(200, { message: "Order removed."});
+		      res.json(200, { message: doc});
 		    } else if(!err) {
 		      res.json(404, { message: "Could not find order."});
 		    } else {

@@ -41,7 +41,7 @@ exports.employeeHandler = function(req, res){
 
 		  var userName = req.body.username; // Name of Employee. 
 
-		  Employee.findOne({ name: username }, function(err, doc) {  // This line is case sensitive.
+		  Employee.findOne({ username: userName }, function(err, doc) {  // This line is case sensitive.
 		  //Employee.findOne({ name: { $regex: new RegExp(Employee_name, "i") } }, function(err, doc) {  // Using RegEx - search is case insensitive
 		    if(!err && !doc) {
 		      
@@ -54,13 +54,13 @@ exports.employeeHandler = function(req, res){
 			newEmployee.zip = req.body.zip;
 			newEmployee.state = req.body.state;
 			newEmployee.phoneNumber = req.body.phoneNumber;
-			newEmployee.username = req.body.userName;
+			newEmployee.username = req.body.username;
 			newEmployee.password = req.body.password;
 		      
 		      newEmployee.save(function(err) {
 
 		        if(!err) {
-		          res.json(201, {message: "Employee created with username: " + newEmployee.username });    
+		          res.json(201, {message: newEmployee});    
 		        } else {
 		          res.json(500, {message: "Could not create Employee. Error: " + err});
 		        }
@@ -90,12 +90,12 @@ exports.employeeHandler = function(req, res){
 			doc.zip = req.body.zip;
 			doc.state = req.body.state;
 			doc.phoneNumber = req.body.phoneNumber;
-			doc.username = req.body.userName;
+			doc.username = req.body.username;
 			doc.password = req.body.password;
 
 	        doc.save(function(err) {
 	          if(!err) {
-	            res.json(200, {message: "Employee updated: " + doc.username});    
+	            res.json(200, {message: doc});    
 	          } else {
 	            res.json(500, {message: "Could not update employee. " + err});
 	          }  

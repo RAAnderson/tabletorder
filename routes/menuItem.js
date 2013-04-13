@@ -42,9 +42,8 @@ exports.menuItemHandler = function(req, res){
 		      
 		    var newMenuItem = new MenuItem(); 
 
-		    newMenuItem.menuCatId = req.body.jobTitle;
-			newMenuItem.status = req.body.firstName;
-			newMenuItem.foodType = req.body.lastName;
+		    newMenuItem.menuCatId = req.body.menuCatId;
+			newMenuItem.foodType = req.body.foodType;
 			newMenuItem.title = req.body.title;
 			newMenuItem.description = req.body.description;
 			newMenuItem.price = req.body.price;
@@ -56,7 +55,7 @@ exports.menuItemHandler = function(req, res){
 		      newMenuItem.save(function(err) {
 
 		        if(!err) {
-		          res.json(201, {message: "MenuItem created with title: " + newMenuItem.title });    
+		          res.json(201, {object: newMenuItem});    
 		        } else {
 		          res.json(500, {message: "Could not create MenuItem. Error: " + err});
 		        }
@@ -79,9 +78,8 @@ exports.menuItemHandler = function(req, res){
 	  MenuItem.findById(id, function(err, doc) {
 	      if(!err && doc) {
 
-	        doc.menuCatId = req.body.jobTitle;
-			doc.status = req.body.firstName;
-			doc.foodType = req.body.lastName;
+	        doc.menuCatId = req.body.menuCatId;
+			doc.foodType = req.body.foodType;
 			doc.title = req.body.title;
 			doc.description = req.body.description;
 			doc.price = req.body.price;
@@ -92,7 +90,7 @@ exports.menuItemHandler = function(req, res){
 
 	        doc.save(function(err) {
 	          if(!err) {
-	            res.json(200, {message: "MenuItem updated: " + doc.title});    
+	            res.json(200, {object: doc});    
 	          } else {
 	            res.json(500, {message: "Could not update menuItem. " + err});
 	          }  

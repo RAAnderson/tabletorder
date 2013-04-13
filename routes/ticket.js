@@ -22,7 +22,7 @@ exports.ticketHandler = function(req, res){
 		  
 		  Ticket.findById(id, function(err, doc) {
 		    if(!err && doc) {
-		      res.json(200, doc);
+		      res.json(200, { message: doc});
 		    } else if(err) {
 		      res.json(500, { message: "Error loading ticket." + err});
 		    } else {
@@ -43,17 +43,17 @@ exports.ticketHandler = function(req, res){
 		    var newTicket = new Ticket(); 
 
 		    //newTicket.ticketId = req.body.ticketId;
-			newTicket.orderId = req.body.tableId;
-			newTicket.tableId = req.body.tip;
-			newTicket.ticketStatusId = req.body.employeeId;
-			newTicket.employeeId = req.body.cost;
-			newTicket.menuItemId = req.body.payment;
-			newTicket.customization = req.body.tip;
+			newTicket.orderId = req.body.orderId;
+			newTicket.tableId = req.body.tableId;
+			newTicket.ticketStatusId = req.body.ticketStatusId;
+			newTicket.employeeId = req.body.employeeId;
+			newTicket.menuItemId = req.body.menuItemId;
+			newTicket.customization = req.body.customization;
 		      
 		      newTicket.save(function(err) {
 
 		        if(!err) {
-		          res.json(newTicket);    
+		          res.json({ message:newTicket});    
 		        } else {
 		          res.json(500, {message: "Could not create Ticket. Error: " + err});
 		        }
@@ -75,16 +75,16 @@ exports.ticketHandler = function(req, res){
 	  Ticket.findById(id, function(err, doc) {
 	      if(!err && doc) {
 
-	        doc.orderId = req.body.tableId;
-			doc.tableId = req.body.tip;
-			doc.ticketStatusId = req.body.employeeId;
-			doc.employeeId = req.body.cost;
-			doc.menuItemId = req.body.payment;
-			doc.customization = req.body.tip;
+	        doc.orderId = req.body.orderId;
+			doc.tableId = req.body.tableId;
+			doc.ticketStatusId = req.body.ticketStatusId;
+			doc.employeeId = req.body.employeeId;
+			doc.menuItemId = req.body.menuItemId;
+			doc.customization = req.body.customization;
 
 	        doc.save(function(err) {
 	          if(!err) {
-	            res.json(doc);    
+	            res.json({message:doc});    
 	          } else {
 	            res.json(500, {message: "Could not update ticket. " + err});
 	          }  

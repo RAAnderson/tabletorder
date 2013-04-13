@@ -9,6 +9,7 @@ var orderSchema = new Schema({
 	, cost : 		{ type: Number }
 	, payment : 	{ type: Number }
 	, tip : 		{ type: Number }
+	, status : 		{ type: Number }
 	, date: 		{ type: Date, default: Date.now }
 });
 
