@@ -25,7 +25,7 @@ var employee = {
 	, Zip : 		{ type: Number }
 	, State : 		{ type: String, trim: true }
 	, PhoneNumber : { type: Number, trim: true }
-	, UserName : 	{ type: Number, trim: true }
+	, UserName : 	{ type: String, trim: true }
 	, Password : 	{ type: Number, trim: true }
 }
 
@@ -37,6 +37,7 @@ var Order = {
 	, Cost : 		{ type: Number }
 	, Payment : 	{ type: Number }
 	, Tip : 		{ type: Number }
+	, date: 		{ type: Date, default: Date.now }
 }
 
 /// Represents every persons 
@@ -46,6 +47,7 @@ var Ticket = {
 	, EmployeeId : 		{ type: Number }
 	, MenuItemId : 		{ type: Number }
 	, Customization : 	{ type: String }  //Used for typing in customizations to an order
+	, date: 			{ type: Date, default: Date.now }
 }
 
 //////////////////////////////////////////////////////////
