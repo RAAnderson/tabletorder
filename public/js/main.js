@@ -41,26 +41,6 @@ function loadTables() {
 		$('.newTable').bind('click', function () {newTable($(this))});
 	}).fail(function( jqxhr, textStatus, error ) {console.log( "Request Failed: " + textStatus + ', ' + error);});
 }
-function loadStaff() {
-	var staffList = $('#staff');
-	var staff;
-	resetAll();
-	displayAjaxLoader();
-	$.getJSON( '../json/staff.json').done(function( json ) {
-		staff = json;
-		staffList.html(' ');
-		for(var i=0; i<staff.employe.length; i++)
-		{
-			staffList.append('<li><span class="staffName">'+staff.employe[i]+'</span><div class="btn-group"><button type="button" class="btn editStaff">Edit</button><button type="button" class="btn deleteStaff">Delete</button></div></li>')
-		}
-		staffList.append('<li><input type="text" data-provide="typeahead" /><div class="btn-group"><button type="button" class="btn newStaff">Add New Staff</button></div></li>');
-		resetAll();
-		$('#staffContainer').slideDown();
-		$('.editStaff').bind('click', function () {editStaff($(this))});
-		$('.deleteStaff').bind('click', function () {deleteStaff($(this))});
-		$('.newStaff').bind('click', function () {newStaff($(this))});
-	}).fail(function( jqxhr, textStatus, error ) {console.log( "Request Failed: " + textStatus + ', ' + error);});
-}
 function loadMenuItems() {
 	var menuItemList = $('#items');
 	var menuItems;
@@ -85,11 +65,12 @@ function loadMenuItems() {
 function displayAjaxLoader() { $('#ajaxloader').slideDown(); }
 
 function resetAll() {
+    $('#loginContainer').slideUp();
 	$('#dashboardContainer').slideUp();
 	$('#categoriesContainer').slideUp();
 	$('#tablesContainer').slideUp();
 	$('#itemsContainer').slideUp();
-	$('#staffContainer').slideUp();
+	$('#empolyeeContainer').slideUp();
 	$('#ajaxloader').slideUp();
 }
 
@@ -107,8 +88,8 @@ $('#navtables').click(function () {
 $('#navmenuItems').click(function () {
 	loadMenuItems();
 });
-$('#navstaff').click(function () {
-	loadStaff();
+$('#navEmployee').click(function () {
+    listEmployee();
 });
 
 /* Edit Click Events */

@@ -15,14 +15,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
 			</button>
-			<a id="home" class="brand" href="#">Electronic Menu Ordering System</a>
+			<a id="home" class="brand" href="#">Tablet Order System</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
-					<li><a id="navmenuItems" href="#items">Menu Items</a></li>
-					<li><a id="navcategories" href="#categories">Categories</a></li>
+					<li><a id="navMenuItems" href="#items">Menu Items</a></li>
+					<li><a id="navCategories" href="#categories">Categories</a></li>
 					<li><a id="navtables" href="#tables">Tables</a></li>
 					<!--<li><a id="navorders" href="#orders">Orders</a></li>-->
-					<li><a id="navstaff" href="#staff">Staff</a></li>
+					<li><a id="navEmployee" href="#employee">Employee</a></li>
+                    <li><a id="navLogout" href="#logout">Logout</a></li>
+
 				</ul>
 			</div>
 		</div>
@@ -31,6 +33,12 @@
     <div class="container">
 		<!-- Ajax Loader -->
 		<img id="ajaxloader" alt="loading" src="img/ajax-loader.gif" />
+        <!-- Login -->
+        <div id="loginContainer">
+            Username: <input id="loginUsername" type="text" />
+            Password: <input id="loginPassword" type="text" />
+            <button id="btnLogin">login</button>
+        </div>
 		<!-- Dashboard -->
 		<div id="dashboardContainer">
 			<h1>Dashboard</h1>
@@ -75,15 +83,15 @@
 				<!-- list of categories -->
 			</ul>
 			</div>
-			<!-- Tables -->
-			<div id="tablesContainer">
+		<!-- Tables -->
+		<div id="tablesContainer">
 			<h1>Tables</h1>
 			<ul id="tables">
 				<!-- table list -->
 			</ul>
 			</div>
-			<!-- Menu Items -->
-			<div id="itemsContainer">
+		<!-- Menu Items -->
+		<div id="itemsContainer">
 			<h1>Menu Items</h1>
 			<div id="items">
 				<div class="accordion" id="accordion3">
@@ -219,10 +227,11 @@
 				</div>
 			</div>
 			</div>
-			<!-- Tables -->
-			<div id="staffContainer">
-			<h1>Staff</h1>
-			<ul id="staff">
+		<!-- Employees -->
+		<div id="employeeContainer">
+            <!-- Employee content -->
+			<!--<h1>Employees</h1>
+			<ul id="employee">
 				<li>Admin<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
 				<li>Jessica<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
 				<li>Joel<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
@@ -232,10 +241,9 @@
 				<li>None<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
 				<li>Rick<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
 				<li><input type="text" data-provide="typeahead" /><div class="btn-group"><button type="button" class="btn">Add New Staff</button></div></li>
-			</ul>
-			</div>
-		</div>
-    </div>
+			</ul>-->
+        </div>
+	</div>
 	<!-- Alert Confirm Box -->
 	<div id="confirmModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -248,10 +256,12 @@
 </div>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-	 <script src="js/main.js"></script>
-	 <script type="text/javascript">
-		resetAll();
-		$('#dashboardContainer').slideDown();
+	<script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/employee.js"></script>
+	<script type="text/javascript">
+		//resetAll();
+		//$('#dashboardContainer').slideDown();
 	 </script>
   </body>
 </html>

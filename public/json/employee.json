@@ -1,0 +1,27 @@
+[{
+	"_id" : "00000000000"
+	,"EmployeeId" : 0
+	, "JobTitle" : "Waiter"
+	, "FirstName" : "Joel"
+	, "LastName" : "Schwarting"
+	, "Address" : "12345 Infinite Road"
+	, "Zip" : "55032"
+	, "State" : "MN"
+	, "PhoneNumber" : "764-555-3435"
+	, "Username" : "joel"
+	, "Password" : "password"
+}
+,{
+	"_id" : "00000000001"
+	,"EmployeeId" : 0
+	,"EmployeeId" : 1
+	, "JobTitle" : "Chef"
+	, "FirstName" : "Rick"
+	, "LastName" : "Anderson"
+	, "Address" : "12345 Sesame Street"
+	, "Zip" : "55032"
+	, "State" : "WA"
+	, "PhoneNumber" : "763-567-8309" 
+	, "Username" : "rick"
+	, "Password" : "rick"
+}]
