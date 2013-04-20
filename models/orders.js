@@ -11,7 +11,21 @@ var orderSchema = new Schema({
 	, tip : 		{ type: Number }
 	, status : 		{ type: Number }
 	, date: 		{ type: Date, default: Date.now }
+	, ticket : 		[ticketSchema]
 });
+
+
+/// Represents every food item orderd
+var ticketSchema = new Schema({
+	tableId : 			{ type: Number }
+	, ticketStatusId : 	{ type: Number }   //Used to show many status's 1-5...
+	, employeeId : 		{ type: String }
+	, menuItemId : 		{ type: String }
+	, customization : 	{ type: String }  //Used for typing in customizations to an order
+	, date: 			{ type: Date, default: Date.now }
+});
+
+
 
 var order = mongoose.model('order', orderSchema);
 
