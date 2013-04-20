@@ -1,3 +1,14 @@
-{
-  "table" : ["None", "Bar","B","C","B","E","F","G","H","I","J","K"]
+
+  [
+  {
+"tableId":"B1",
+"location":"North East Wing",
+"totalSeats":"6"
 }
+,{
+"tableId":"B2",
+"location":"South Wing",
+"totalSeats":"12"
+}
+  
+  ]

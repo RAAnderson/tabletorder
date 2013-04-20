@@ -1,34 +1,51 @@
 body {padding-top: 60px;}
+.clear{clear:both;}
+.navbar{display:none;}
 #ajaxloader {width:50px;height:50px;margin:0px auto;display:none;}
 #categoriesContainer {display:none}
 #dashboardContainer {display:none}
-//#employeeContainer {display:none}
+#employeeContainer {display:none}
 #itemsContainer {display:none}
 #loginContainer {display: none;}
-
+#logoutContainer {display: none;}
+#orderContainer {display: none;}
 #tablesContainer {display:none}
 
-#categories {
-	list-style:none;
-	font-size: 20px;
-
-}
-#categories li {border-bottom:1px #e5e5e5 solid;
- padding:10px 10px 15px 10px;
-}
-#categories {
+/* login */
+#loginContainer {
+    width: 260px;
     border: 1px #e5e5e5 solid;
-	-webkit-border-radius: 4px;
+    padding: 20px;
+    margin: 0px auto;
+    -webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 }
-#categories li .btn-group {
-	float:right;
+#loginContainer button {
+    width: 100px;
+    
 }
 
+/* logout */
+#logoutContainer {
+    width: 260px;
+    border: 1px #e5e5e5 solid;
+    padding: 20px;
+    margin: 0px auto;
+    -webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+#logoutContainer button {
+    width: 100px;
+    
+}
+
+/* employee */
 #employee {
 	list-style:none;
 	font-size: 20px;
+    margin-top:20px;
     border: 1px #e5e5e5 solid;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -40,39 +57,23 @@ body {padding-top: 60px;}
 #employee li .btn-group {
 	float:right;
 }
+.employeeForm {display:none}
+.employeeForm img {height:200px;}
+.leftCol {float:left; width:200px;margin: 20px;}
+.changePicture {margin-top: 10px; width: 100%;}
+.userInfo {width: 200px;}
+.username {width: 180px;}
+.empInfo { margin: 20px;}
+.userCInfo { margin: 20px;}
+.empInfo label{font-size: 18px;margin: 4px;}
+.userCInfo label{font-size: 18px;margin: 4px;}
+.employeeCForm img {height:100px;}
 
-.accordion-inner input {
-	position:relative;
-	top: 5px;
-}
-.accordion-inner input {
-	position:relative;
-	top: 5px;
-}
-.accordion-inner input {
-	position:relative;
-	top: 5px;
-}
-.dashTableOrder {
-	float:left;
-	width:230px;
-	padding: 10px;
-	margin: 10px;
-	border: 1px #e5e5e5 solid;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-}
+/* Order */
+#ordersTable{margin-top: 20px;}
+ordersTable tr td{padding:10px;}
 
-#orderItems {
-	list-style:none;	height: 150px;
-}
-#orderItems li {
-	position: relative;
-	right: 20px;
-}
-.oprice { float: right;}
-
+/* tables */
 #tables {
 	list-style:none;
 	font-size: 20px;

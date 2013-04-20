@@ -1,25 +1,47 @@
 ﻿var employeeContainer = $('#employeeContainer');
+var empNumber;
+var empjson;
 
-function listEmployee() {
+function loadEmployee() {
+    var employee;
+    var data = {"requestType":"list"}
     resetAll();
     displayAjaxLoader();
-    var employees
     employeeContainer.html('<h1>Employees</h1>');
-    $.getJSON('../json/employee.json').done(function (json) {
+    employeeContainer.append('<button onclick="createEmployees()" type="button" class="btn btnCreateEmployee">Add New Employee</button>');
+
+    $.post('./employee', data).done(function (json) {
         var employeeHTML='';
-        employees = json;
+        empjson = json;
         employeeHTML += '<ul id="employee">';
-        for (var i = 0; i < employees.length; i++) {
+        for (var i = 0; i < empjson.employees.length; i++) {
             employeeHTML += '<li>';
-            employeeHTML += '<span uid="'+i+'" class="employeeName">' + employees[i].Username + '</span>';
+            employeeHTML += '<a onclick="displayEmpInfo(' + i + ')" href="#"><span class="employeeName">' + empjson.employees[i].username + '</span></a>';
             employeeHTML += '<div class="btn-group"><button onclick="updateEmployee(' + i + ')" type="button" class="btn updateEmployee">Update</button><button type="button" class="btn deleteEmployee">Delete</button></div>';
+            employeeHTML += '<form id="employeeInfo'+i+'" class="employeeForm">';
+            employeeHTML += '<div class="leftCol">';
+            employeeHTML += '<div>Username: ' + empjson.employees[i].username + '</div>';
+            employeeHTML += '<button type="button" class="btn">Change Password</button>';
+            employeeHTML += '</div>';
+            employeeHTML += '<fieldset class="empInfo"><legend>Employee Info</legend>';
+            employeeHTML += '<table>';
+            employeeHTML += '<tr><td><label for="jobTitle">Job Title:</label></td><td>' + empjson.employees[i].jobTitle+ '</td></tr>';
+            employeeHTML += '<tr><td><label for="lastName">First Name:</label></td><td>' + empjson.employees[i].firstName + '</tr>';
+            employeeHTML += '<tr><td><label for="lastName">Last Name:</label></td><td>' + empjson.employees[i].lastName + '</td></tr>';
+            employeeHTML += '<tr><td><label for="address">Address:</label></td><td>' + empjson.employees[i].address + '</td></tr>';
+            employeeHTML += '<tr><td><label for="state">State:</label></td><td>' + empjson.employees[i].state + '</td></tr>';
+            employeeHTML += '<tr><td><label for="zip">Zip:</label></td><td>' + empjson.employees[i].zip + '</td></tr>';
+            employeeHTML += '<tr><td><label for="phonenumber">PhoneNumber:</label></td><td>' + empjson.employees[i].phoneNumber+ '</td></tr>';
+            employeeHTML += '</table>';
+            employeeHTML += '</fieldset>';
+            employeeHTML += '</form>';
+            employeeHTML += '<div class="clear"></div>';
             employeeHTML += '</li>';
         }
-        employeeHTML += '<li id="last"><button onclick="createEmployee()" type="button" class="btn createEmployee">Add New Employee</button></div></li>';
+        employeeHTML += '</ul>';
         employeeContainer.append(employeeHTML);
     }).fail(function (jqxhr, textStatus, error) { console.log("Request Failed: " + textStatus + ', ' + error); });
     resetAll();
-    console.log($('.createEmployee'));
     employeeContainer.slideDown();
     console.log('done');
 }
@@ -27,45 +49,68 @@ function listEmployee() {
 function updateEmployee(node) {
     console.log(node);
 }
-/* Staff */
-function createEmployee() {
-    var listItem = $('#last');
-    listItem.html('');
-    var html = '';
-    html += '<div>';
-    html += 'Username:<input id="username" type="text" />';
-    html += 'Job Title:<input id="jobTitle" type="text" />';
-    html += 'First Name:<input type="text" />';
-    html += 'Last Name:<input type="text" />';
-    html += 'Address:<input type="text" />';
-    html += 'Zip:<input type="text" />';
-    html += 'State:<input type="text" />';
-    html += 'PhoneNumber:<input type="text" />';
-    html += 'Password:<input type="password" />';
-    html += 'Confirm Password:<input type="password" />';
-    html += '<div class="btn-group"><button onclick="saveEmployee()" type="button" class="btn saveEmployee">Save</button><button onclick="cancelEmployee()" type="button" class="btn cancelEmployee">Cancel</button></div>';
-    html += '</div>';
-    listItem.html(html);
+
+function createEmployees() {
+    var formHTML = '';
+    $('#formTitle').html('Add New Employee');
+    formHTML += '<div style="width:500px">';
+    formHTML += '<form class="employeeCForm">';
+    formHTML += '<fieldset class="empInfo"><legend>Employee Info</legend>';
+    formHTML += '<table>';
+    formHTML += '<tr><td><label for="jobTitle">Job Title:</label></td><td><input id="jobTitle" type="text" /></td></tr>';
+    formHTML += '<tr><td><label for="lastName">First Name:</label></td><td><input id="fname" type="text" /></td></tr>';
+    formHTML += '<tr><td><label for="lastName">Last Name:</label></td><td><input id="lname" type="text" /></td></tr>';
+    formHTML += '<tr><td><label for="address">Address:</label></td><td><input id="address" type="text" /></td></tr>';
+    formHTML += '<tr><td><label for="state">State:</label></td><td><input style="width:20px;" id="state" type="text" /></td></tr>';
+    formHTML += '<tr><td><label for="zip">Zip:</label></td><td><input style="width:50px;" id="zip" type="text" /></td></tr>';
+    formHTML += '<tr><td><label for="phonenumber">PhoneNumber:</label></td><td><input id="phonenumber" type="text" /></td></tr>';
+    formHTML += '</table>';
+    formHTML += '</fieldset>';
+    formHTML += '<fieldset class="userCInfo" ><legend>User Info</legend>';
+    formHTML += '<table>';
+    formHTML += '<tr><td><label>Username:</label></td><td><input id="username" type="text" />';
+    formHTML += '<tr><td><label>Password:</label></td><td><input id="password" type="password" />';
+    formHTML += '<tr><td><label>Confirm Password:</label></td><td><input id="conpassword" type="password" />';
+    formHTML += '</table>';
+    formHTML += '</fieldset>';
+    formHTML += '</form>';
+    formHTML += '</div>';
+    $('#formContent').html(formHTML);
+    $('#formModel').modal('show');
+    $('#saveForm').unbind('click');
+    $('#saveForm').bind('click', function () {
+        /*employeeCreate = {
+            "requestType": "create",
+            "jobTitle": $('#jobTitle').val(),
+            "firstName": $('#fname').val(),
+            "lastName": $('#lname').val(),
+            "address": $('#address').val(),
+            "zip": $('#zip').val(),
+            "state": $('#state').val(),
+            "phoneNumber": $('#phonenumber').val(),
+            "username": $('#username').val(),
+            "password": $('#password').val()
+        }*/
+        var employeeCreate = {
+            "requestType":"create",
+                "jobTitle":"Manager",
+                "firstName":"Joel",
+                "lastName":"Schwartz",
+                "address":"12433 Infinite Loop",
+                "zip":"12587",
+                "state":"MN",
+                "phoneNumber":"3201472541",
+                "username":"1",
+                "password":"1"
+        }
+        console.log(employeeCreate);
+        $.post('./employee', employeeCreate).done(function (json) {
+            loadEmployee();
+        }).fail(function (jqxhr, textStatus, error) { console.log("Request Failed: " + textStatus + ', ' + error); });
+        $('#formModel').modal('hide');
+    });
 }
 
-function saveEmployee(node) {
-    var username, jobTitle, firstName, lastName, address, zip, state, phoneNumber, password, confirmpassword;
-    if (!node) {
-        none = ' ';
-    } else {
-        none = ' ';
-    }
-    username = $('#username').val();
-    jobTitle = $('#jobTitle').val();
-    console.log(username + ' ' + jobTitle);
-}
-
-function cancelEditStaff(object) {
-    var oldname = object.parents('li').children('input').attr('oldname');
-    object.parents('li').html('<span class="staffName">' + oldname + '</span><div class="btn-group"><button type="button" class="btn editStaff">Edit</button><button type="button" class="btn deleteStaff">Delete</button></div>');
-    $('.editStaff').bind('click', function () { editStaff($(this)) });
-    $('.deleteStaff').bind('click', function () { deleteStaff($(this)) });
-}
 function deleteStaff(object) {
     var listItem = object.parents('li');
     var staffName = listItem.children('.staffName').text();
@@ -77,3 +122,8 @@ function deleteStaff(object) {
         $('#confirmModal').modal('hide');
     });
 };
+
+function displayEmpInfo(node) {
+    $("#employeeInfo"+node).toggle();
+    return false;
+}

@@ -18,13 +18,11 @@
 			<a id="home" class="brand" href="#">Tablet Order System</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
+                    <li><a id="navOrder" href="#order">Order</a></li>
 					<li><a id="navMenuItems" href="#items">Menu Items</a></li>
-					<li><a id="navCategories" href="#categories">Categories</a></li>
-					<li><a id="navtables" href="#tables">Tables</a></li>
-					<!--<li><a id="navorders" href="#orders">Orders</a></li>-->
+					<li><a id="navTables" href="#tables">Tables</a></li>
 					<li><a id="navEmployee" href="#employee">Employee</a></li>
                     <li><a id="navLogout" href="#logout">Logout</a></li>
-
 				</ul>
 			</div>
 		</div>
@@ -33,56 +31,41 @@
     <div class="container">
 		<!-- Ajax Loader -->
 		<img id="ajaxloader" alt="loading" src="img/ajax-loader.gif" />
-        <!-- Login -->
-        <div id="loginContainer">
-            Username: <input id="loginUsername" type="text" />
-            Password: <input id="loginPassword" type="text" />
-            <button id="btnLogin">login</button>
-        </div>
-		<!-- Dashboard -->
+        <!-- Dashboard -->
 		<div id="dashboardContainer">
 			<h1>Dashboard</h1>
-			<div class="dashTableOrder">
-			<h3>Table: A1</h3>
-			<ul id="orderItems">
-				<li>1x Artichoke Dip<div class="oprice">$ 8.25</div></li>
-				<li>2x Caprese Grill<div class="oprice">$ 8.00</div></li>
-				<li>2x Coffee<div class="oprice">$ 2.00</div></li>
-				<li>&nbsp;</li>
-				<li>Total: $ 28.25<li>
-			</ul>
-			<div class="btn-group"><button type="button" class="btn">Edit Order</button><button type="button" class="btn">Table Order Done</button></div>
-			</div>
-			<div class="dashTableOrder">
-			<h3>Table: A2</h3>
-			<ul id="orderItems">
-				<li>2x Grilled Portabella <div class="oprice">$ 8.50</div></li>
-				<li>2x Waters<div class="oprice">$ 0.00</div></li>
-				<li>&nbsp;</li>
-				<li>Total: $ 19.00<li>
-			</ul>
-			<div class="btn-group"><button type="button" class="btn">Edit Order</button><button type="button" class="btn">Table Order Done</button></div>
-			</div>
-			<div class="dashTableOrder">
-			<h3>Table: A3</h3>
-			<ul id="orderItems">
-				<li>1x Downtowner <div class="oprice">$ 8.50</div></li>
-				<li>1x Pepperoni Pizza<div class="oprice">$ 9.25</div></li>
-				<li>1x Water<div class="oprice">$ 0.00</div></li>
-				<li>3x French Soda<div class="oprice">$ 3.25</div></li>
-				<li>&nbsp;</li>
-				<li>Total: $ 27.50<li>
-			</ul>
-			<div class="btn-group "><button type="button" class="btn">Edit Order</button><button type="button" class="btn">Table Order Done</button></div>
-			</div>
+            <!-- Dashboard Content -->
 		</div>
-		<!-- Categories -->
-		<div id="categoriesContainer">
-			<h1>Categories</h1>
-			<ul id="categories">
-				<!-- list of categories -->
-			</ul>
-			</div>
+        <!-- Employees -->
+		<div id="employeeContainer">
+            <h1>Employees</h1>
+            <!-- Employee Content -->
+        </div>
+        <!-- Login -->
+        <div id="loginContainer">
+            <h3>Login</h3>
+            Username: <input id="loginUsername" type="text" />
+            Password: <input id="loginPassword" type="text" />
+            <center><button  id="btnLogin" type="button" class="btn">login</button></center>
+        </div>
+        <!-- logout -->
+        <div id="logoutContainer">
+            <h3 id="logoutTitle">Logout</h3>
+            <center><button  id="btnLoginPage" type="button" class="btn">login</button></center>
+        </div>
+        <!-- Orders -->
+		<div id="orderContainer">
+			<h1>Orders</h1>
+            <button onclick="createOrder()" type="button" class="btn btnCreateOrder">Add New Order</button>
+             <!-- Order content -->
+            <table id="ordersTable">
+                <tr><th>ID</th><th>Table</th><th>Date</th><th>Done</th><th>Paid</th><th></th><th></th></tr>
+                <tr><td>103518648648646</td><td>A</td><td>04/13/2013</td><td><input type="checkbox" /></td><td><input type="checkbox" /></td><td><button type="button" class="btn updateEmployee">Make Order Receipt</button></td><td>
+<div class="btn-group"><button type="button" class="btn updateEmployee">Update</button><button onclick="cancelEmployee()" type="button" class="btn cancelEmployee">Delete</button></div></td></tr>
+                <tr><td>103518648648647</td><td>B</td><td>04/13/2013</td><td><input type="checkbox" /></td><td><input type="checkbox" /></td><td><button type="button" class="btn updateEmployee">Make Order Receipt</button></td><td>
+                    <div class="btn-group"><button type="button" class="btn updateEmployee">Update</button><button onclick="cancelEmployee()" type="button" class="btn cancelEmployee">Delete</button></div></td></tr>
+            </table>
+        </div>
 		<!-- Tables -->
 		<div id="tablesContainer">
 			<h1>Tables</h1>
@@ -191,77 +174,52 @@
 					  </div>
 					</div>
 				  </div>
-				  <div class="accordion-group">
-					<div class="accordion-heading">
-					  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseFour">New Item</a>
-					</div>
-					<div id="collapseFour" class="accordion-body collapse">
-					  <div class="accordion-inner">
-						 <table>
-					  <tr>
-						<td style="width: 100px;">Name: </td>
-						<td style="padding-right: 100px"><input type="text" data-provide="typeahead" value="" /></td>
-						<td>Price: </td><td>$<input type="text" style="width: 100px" data-provide="typeahead" value="" /></td>
-					</tr>
-					<tr>
-						<td style="width: 100px;">Category: </td><td><select>
-											  <option value="Appetizers" selected>Appetizers</option>
-											  <option value="Sandwiches">Sandwiches</option>
-											  <option value="Wraps">Wraps</option>
-											  <option value="Salads">Salads</option>
-											  <option value="Soups">Soups</option>
-											  <option value="Pizza">Pizza</option>
-											  <option value="Desserts">Desserts</option>
-											  <option value="Drinks">Drinks</option>
-											  <option value="Others">Other</option>
-											</select></td>
-						</tr>
-						<tr><td>Description:</td><td><textarea name="comments" cols="100" rows="3"></textarea></td>
-						</td></tr>
-						</table>
-						<div class="btn-group"><button type="button" class="btn">Create New Item</button></div>
-					  </div>
-					</div>
-					
-				  </div>
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Create New Menu Item</button>
 				</div>
 			</div>
 			</div>
-		<!-- Employees -->
-		<div id="employeeContainer">
-            <!-- Employee content -->
-			<!--<h1>Employees</h1>
-			<ul id="employee">
-				<li>Admin<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
-				<li>Jessica<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
-				<li>Joel<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
-				<li>Kayla<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
-				<li>Kendra<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
-				<li>Mustafa<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
-				<li>None<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
-				<li>Rick<div class="btn-group"><button type="button" class="btn">Edit</button><button type="button" class="btn">Delete</button></div></li>
-				<li><input type="text" data-provide="typeahead" /><div class="btn-group"><button type="button" class="btn">Add New Staff</button></div></li>
-			</ul>-->
+	</div>
+    <!-- Alert Confirm Box -->
+    <div id="formModel" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+		<h3 id="formTitle">Title</h3>
+		</div>
+		<div class="modal-body"><p id="formContent">Content</p></div>
+        <div class="modal-footer">
+		<button id="saveForm" class="btn btn-primary">Save</button>
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
         </div>
 	</div>
 	<!-- Alert Confirm Box -->
 	<div id="confirmModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		<h3 id="myModalLabel">Please Confirm the Following</h3>
+		<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+		<h3 id="myModalLabel">Please Confirm The Following</h3>
 		</div>
-		<div class="modal-body"><p id="modalContent">Are you</p></div><div class="modal-footer">
+		<div class="modal-body"><p id="confirmContent"></p></div>
+        <div class="modal-footer">
 		<button id="confirmed" class="btn btn-primary">OK</button>
 		<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-  </div>
-</div>
+        </div>
+	</div>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
-    <script src="js/login.js"></script>
+    <script src="js/mustache.js"></script>
+    <script src="js/dashboard.js"></script>
     <script src="js/employee.js"></script>
+    <script src="js/item.js"></script>
+    <script src="js/item.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/order.js"></script>
+    <script src="js/table.js"></script>
 	<script type="text/javascript">
-		//resetAll();
-		//$('#dashboardContainer').slideDown();
+	    var login = false;
+	    if (login) {
+	        loadDashboard();
+	    } else {
+	        loadLogin();
+	    }
 	 </script>
   </body>
 </html>

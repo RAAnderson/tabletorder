@@ -8,7 +8,7 @@
 	, "Zip" : "55032"
 	, "State" : "MN"
 	, "PhoneNumber" : "764-555-3435"
-	, "Username" : "joel"
+	, "Username" : "Joel"
 	, "Password" : "password"
 }
 ,{
@@ -22,6 +22,6 @@
 	, "Zip" : "55032"
 	, "State" : "WA"
 	, "PhoneNumber" : "763-567-8309" 
-	, "Username" : "rick"
+	, "Username" : "Rick"
 	, "Password" : "rick"
 }]
