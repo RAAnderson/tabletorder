@@ -17,7 +17,7 @@ var orderSchema = new Schema({
 
 /// Represents every food item orderd
 var ticketSchema = new Schema({
-	, ticketStatusId : 	{ type: Number }   //Used to show many status's 1-5...
+	ticketStatusId : 	{ type: Number }   //Used to show many status's 1-5...
 	, employeeId : 		{ type: String }
 	, customization : 	{ type: String }  //Used for typing in customizations to an order
 	, date: 			{ type: Date, default: Date.now }

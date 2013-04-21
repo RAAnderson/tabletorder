@@ -122,6 +122,69 @@ http://localhost:5010/order
 "cost":"10.50",
 "payment":"31.00",
 "tip":"17.00",
+"status":"1",
+"tickets": [
+{
+"tableId":"1",
+"ticketStatusId":"1",
+"employeeId":"123",
+"menuItemId":"31",
+"customization":"example customization right here!!!"
+},
+{
+"tableId":"1",
+"ticketStatusId":"1",
+"employeeId":"123",
+"menuItemId":"31",
+"customization":"example customization right here!!!"
+}
+]
+}
+
+{
+"requestType":"create",
+"tableId":"1",
+"employeeId":"516988613b0cffc421000002",
+"cost":"10.50",
+"payment":"31.00",
+"tip":"17.00",
+"status":"1",
+"tickets": [
+{
+"tableId":"1",
+"ticketStatusId":"1",
+"employeeId":"123",
+"menuItem": {
+	"menuItemId":"5",
+	"menuCatId":"3",
+	"foodType":"test",
+	"title":"test",
+	"description":"test",
+	"price":"10",
+	"menuStatus":"1",
+	"menuType":"test",
+	"customSeason":"",
+	"ingredients":"test, test, test, test"
+	},
+"customization":"example customization right here!!!"
+},
+{
+"tableId":"1",
+"ticketStatusId":"1",
+"employeeId":"123",
+"menuItemId":"31",
+"customization":"example customization right here!!!"
+}
+]
+}
+
+{
+"requestType":"create",
+"tableId":"1",
+"employeeId":"516988613b0cffc421000002",
+"cost":"10.50",
+"payment":"31.00",
+"tip":"17.00",
 "status":"1"
 }
 
