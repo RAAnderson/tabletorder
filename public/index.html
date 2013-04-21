@@ -58,42 +58,70 @@
 			<h1>Orders</h1>
             <button onclick="createOrder()" type="button" class="btn btnCreateOrder">Add New Order</button>
              <!-- Order content -->
-            <table id="ordersTable">
+            <!-- <table id="ordersTable">
                 <tr><th>ID</th><th>Table</th><th>Date</th><th>Done</th><th>Paid</th><th></th><th></th></tr>
                 <tr><td>103518648648646</td><td>A</td><td>04/13/2013</td><td><input type="checkbox" /></td><td><input type="checkbox" /></td><td><button type="button" class="btn updateEmployee">Make Order Receipt</button></td><td>
 <div class="btn-group"><button type="button" class="btn updateEmployee">Update</button><button onclick="cancelEmployee()" type="button" class="btn cancelEmployee">Delete</button></div></td></tr>
                 <tr><td>103518648648647</td><td>B</td><td>04/13/2013</td><td><input type="checkbox" /></td><td><input type="checkbox" /></td><td><button type="button" class="btn updateEmployee">Make Order Receipt</button></td><td>
                     <div class="btn-group"><button type="button" class="btn updateEmployee">Update</button><button onclick="cancelEmployee()" type="button" class="btn cancelEmployee">Delete</button></div></td></tr>
-            </table>
+            </table> 
+
+// <table>
+								// 	<tr>
+								// 		<td>{{menuItemId}}</td>
+								// 		<td>{{title}}</td>
+								// 		<td>{{foodType}}</td>
+								// 	</tr>
+								// </table>
+
+        -->
             <!-- --------------------------------------------------------------------- -->
-            <table id="OrderContainer">
-            	<div id="rick_orderList">
+            <!-- <table id="OrderContainer"> -->
+            <br>
+            <br>
+            	<table id="rick_orderList" class="table table-striped">
+            		
+            	</table>
+				<script id="rick_orderTemplate" type="text/template">
+					<tr>
+						<th>Table</th>
+						<th>Active</th>
+						<th>total</th>
+					</tr>
+					{{#orders}}
+								<tr>
+									<td>{{tableId}}<td>
+									<td>{{status}}<td>
+									<td>{{cost}}<td>
+									<td><button onclick="" class="btn" type="button">View Tickets</button></td>
+									<td><button onclick="" class="btn" type="button">Add Ticket</button></td>
+									<td><button onclick="" class="btn" type="button">Update</button></td>
+									<td><button onclick="deleteOrder('{{_id}}')" class="btn" type="button">Delete</button></td>
+									<td>
+										<tr>
+											<th>status</th>
+											<th>employee</th>
+											<th>customization</th>
+											<th>menuItem</th>
 
-            	</div>
+										</tr>
+										{{#tickets}}
+											<tr>
+												<td>{{ticketStatusId}}</td>
+												<td>{{employeeId}}</td>
+												<td>{{customization}}</td>
+												<td>{{menuItem.title}}</td>
+											</tr>
+										{{/tickets}}
+									</td>
+								</tr>
+								
 
-            	<script id="rick_orderTemplate" type="text/template">
-            	<h1>test</h1>
+					{{/orders}}	
 
-            		{{#orders}}
-            			<div>
-            				<h4>OrderId = {{_id}}</h4>
-            					{{#tickets}}
-            					<tr>
-            						<th>ticketStatusId</th>
-            						<th>menuItemId</th>
-            						<th>customization</th>
-            					</tr>
-            					<tr>
-            						<td>{{ticketStatusId}}<td>
-            						<td>{{menuItemId}}<td>
-            						<td>{{customization}}<td>
-            					</tr>
-            					{{/tickets}}
-            			</div>
-            		{{/orders}}
+				</script>
 
-            	</script>
-            </table>
+            <!-- </table> -->
             <!-- --------------------------------------------------------------------- -->
 
         </div>

@@ -17,10 +17,6 @@
 
 function loadOrder() {
     $.post('http://localhost:5010/order', data).done(function (res) {
-        // var orderList = res.orders;
-        // console.log(orderList);
-        // console.log(res.orders[0]);
-
         displayOrders(res);
 
     }).fail(function (jqxhr, textStatus, error) { console.log("Request Failed: " + textStatus + ', ' + error); });
@@ -35,3 +31,50 @@ function displayOrders(data){
         var htmler = Mustache.to_html(templater, data);
         $('#rick_orderList').html(htmler);
     };
+
+function deleteOrder(orderId){
+    var orderDelete = {};
+    orderDelete._id = orderId;
+    orderDelete.requestType = "delete";
+    $.post('./order', orderDelete).done(function (json) {
+            console.log(json);
+            loadOrder();
+        }).fail(function (jqxhr, textStatus, error) { console.log("Request Failed: " + textStatus + ', ' + error); });
+        
+}
+
+function createOrder() {
+    var formHTML = '';
+    $('#formTitle').html('Add New order');
+    formHTML += '<table>';
+    formHTML += '<tr><td>Table Name: </td><td><input id="tableName" type="text" /></td></tr>';
+    formHTML += '<tr><td>status: </td><td><input id="status" type="text" /></td></tr>';
+    formHTML += '<tr><td>Total: </td><td><input id="cost" type="text" /></td></tr>';
+    formHTML += '<tr><td>payment: </td><td><input id="payment" type="text" /></td></tr>';
+    formHTML += '<tr><td>tip: </td><td><input id="tip" type="text" /></td></tr>';
+    formHTML += '<tr><td>employeeId: </td><td><input id="employeeId" type="text" /></td></tr>'
+    formHTML += '<tr><td>customization: </td><td><input id="customization" type="text" /></td></tr>';
+    formHTML += '</table>';
+    $('#formContent').html(formHTML);
+    $('#formModel').modal('show');
+    $('#saveForm').unbind('click');
+    $('#saveForm').bind('click', function () {
+        orderCreate = {
+            "requestType": "create",
+            "tableId": $('#tableName').val(),
+            "status": $('#status').val(),
+            "cost": $('#cost').val(),
+            "payment": $('#payment').val(),
+            "tip": $('#tip').val(),
+            "employeeId": $('#employeeId').val(),
+            "customization": $('#customization').val(),
+            "tickets":""
+        }
+        
+        $.post('./order', orderCreate).done(function (json) {
+            loadOrder(json);
+            console.log(json);
+        }).fail(function (jqxhr, textStatus, error) { console.log("Request Failed: " + textStatus + ', ' + error); });
+        $('#formModel').modal('hide');
+    });
+}
