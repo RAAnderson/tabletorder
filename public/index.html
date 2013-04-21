@@ -79,7 +79,16 @@
             				<h4>OrderId = {{_id}}</h4>
             				<p>
             					{{#tickets}}
-            					<h5>ticket example</h5>
+            					<tr>
+            						<th>ticketStatusId</th>
+            						<th>menuItemId</th>
+            						<th>customization</th>
+            					</tr>
+            					<tr>
+            						<td>{{ticketStatusId}}<td>
+            						<td>{{menuItemId}}<td>
+            						<td>{{customization}}<td>
+            					</tr>
             					{{/tickets}}
             				</p>
             			</div>
