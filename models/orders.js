@@ -11,7 +11,7 @@ var orderSchema = new Schema({
 	, tip : 		{ type: Number }
 	, status : 		{ type: Number }
 	, date: 		{ type: Date, default: Date.now }
-	, ticket : 		[ticketSchema]
+	, tickets : 		[ticketSchema]
 });
 
 

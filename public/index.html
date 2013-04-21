@@ -65,6 +65,30 @@
                 <tr><td>103518648648647</td><td>B</td><td>04/13/2013</td><td><input type="checkbox" /></td><td><input type="checkbox" /></td><td><button type="button" class="btn updateEmployee">Make Order Receipt</button></td><td>
                     <div class="btn-group"><button type="button" class="btn updateEmployee">Update</button><button onclick="cancelEmployee()" type="button" class="btn cancelEmployee">Delete</button></div></td></tr>
             </table>
+            <!-- --------------------------------------------------------------------- -->
+            <table id="OrderContainer">
+            	<div id="rick_orderList">
+
+            	</div>
+
+            	<script id="rick_orderTemplate" type="text/template">
+            	<h1>test</h1>
+
+            		{{#orders}}
+            			<div>
+            				<h4>OrderId = {{_id}}</h4>
+            				<p>
+            					{{#tickets}}
+            					<h5>ticket example</h5>
+            					{{/tickets}}
+            				</p>
+            			</div>
+            		{{/orders}}
+
+            	</script>
+            </table>
+            <!-- --------------------------------------------------------------------- -->
+
         </div>
 		<!-- Tables -->
 		<div id="tablesContainer">
@@ -201,17 +225,19 @@
 		<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
         </div>
 	</div>
+	<script type="text/javascript" src="js/mustache.js"> </script>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    
 	<script src="js/main.js"></script>
-    <script src="js/mustache.js"></script>
+ <!--   <script src="js/mustache.js"></script> -->
     <script src="js/dashboard.js"></script>
     <script src="js/employee.js"></script>
     <script src="js/item.js"></script>
     <script src="js/item.js"></script>
     <script src="js/login.js"></script>
     <script src="js/logout.js"></script>
-    <script src="js/order.js"></script>
+    <script src="js/order.js"></script> 
     <script src="js/table.js"></script>
 	<script type="text/javascript">
 	    var login = false;

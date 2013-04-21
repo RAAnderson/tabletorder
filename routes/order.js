@@ -49,6 +49,7 @@ exports.orderHandler = function(req, res){
 			newOrder.payment = req.body.payment;
 			newOrder.tip = req.body.tip;
 			newOrder.status = req.body.status;
+			newOrder.tickets = req.body.tickets;
 		      
 		      newOrder.save(function(err) {
 		        if(!err) {
@@ -82,6 +83,7 @@ exports.orderHandler = function(req, res){
 			doc.payment = req.body.payment;
 			doc.tip = req.body.tip;
 			doc.status = req.body.status;
+			doc.tickets = req.body.tickets;
 
 	        doc.save(function(err) {
 	          if(!err) {
