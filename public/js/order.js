@@ -58,7 +58,6 @@ function createNewTicket(){
 }
 
 function createTicket(){
-console.log("start > createTicket");
 getMenuList();
 
 var formHTML = '';
@@ -78,6 +77,7 @@ var formHTML = '';
     $('#formContent').html(formHTML);
     $('#formModel').modal('show');
 adjustOptions();
+
 }
 
 function adjustOptions(){
