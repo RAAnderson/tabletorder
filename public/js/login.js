@@ -1,17 +1,23 @@
+var user = {
+    "username": "blank"
+    ,"password": "blank"
+};
+
 function loadLogin() {
     resetAll();
     $('#loginContainer').slideDown();
 };
 
 $('#btnLogin').click(function () {
-    var username, password, data;
+    var data;
     $('.alert').slideUp();
-    username = $('#loginUsername').val();
-    password = $('#loginPassword').val();
+    user.username = $('#loginUsername').val();
+    user.password = $('#loginPassword').val();
     loginData = {
         "requestType": "read"
-        , "username": username
+        , "username": user.username
     };
+
     /*$.post('./employee', loginData).done(function (json) {
         if (password === json.password) {
             $('.navbar').slideDown();
@@ -22,7 +28,7 @@ $('#btnLogin').click(function () {
         }
     }).fail(function (jqxhr, textStatus, error) { console.log("Request Failed: " + textStatus + ', ' + error); });*/
 
-    if (password === "password") {
+    if (user.username === "admin" && user.password === "admin") {
         $('.navbar').slideDown();
         login = true;
         loadDashboard();

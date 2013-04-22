@@ -168,9 +168,9 @@ function changePassword(node) {
     formHTML += '<div style="width:500px">';
     formHTML += '<form class="employeeCForm">';
     formHTML += '<table>';
-    formHTML += '<tr><td><label for="jobTitle">Current Password:</label></td><td><input id="jobTitle" type="text" /></td></tr>';
-    formHTML += '<tr><td><label for="lastName">New Password:</label></td><td><input id="fname" type="text" /></td></tr>';
-    formHTML += '<tr><td><label for="lastName">Confirm Password:</label></td><td><input id="lname" type="text" /></td></tr>';
+    formHTML += '<tr><td><label for="jobTitle">Current Password:</label></td><td><input id="jobTitle" type="password" /></td></tr>';
+    formHTML += '<tr><td><label for="lastName">New Password:</label></td><td><input id="fname" type="password" /></td></tr>';
+    formHTML += '<tr><td><label for="lastName">Confirm Password:</label></td><td><input id="lname" type="password" /></td></tr>';
     formHTML += '</table>';
     formHTML += '</form>';
     formHTML += '</div>';

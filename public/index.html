@@ -45,7 +45,7 @@
         <div id="loginContainer">
             <h3>Login</h3>
             Username: <input id="loginUsername" type="text" />
-            Password: <input id="loginPassword" type="text" />
+            Password: <input id="loginPassword" type="password" />
             <center><button  id="btnLogin" type="button" class="btn">login</button></center>
         </div>
         <!-- logout -->
@@ -292,11 +292,12 @@
     <script src="js/order.js"></script> 
     <script src="js/table.js"></script>
 	<script type="text/javascript">
-	    var login = false;
+	    var login = true;
 	    if (login) {
-	        loadDashboard();
-	    } else {
 	        loadLogin();
+	    } else {
+	        loadDashboard();
+	        $('.navbar').slideDown();
 	    }
 	 </script>
   </body>
