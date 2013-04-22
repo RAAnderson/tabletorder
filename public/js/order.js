@@ -16,9 +16,11 @@
 // }
 var ordersObject = "";
 var currentOrder = "";
+var menuList = "";
+var menuListLength = "";
 
 function loadOrder() {    
-    $.post('http://localhost:5010/order', data).done(function (res) {
+    $.post('./order', data).done(function (res) {
         displayOrders(res);
         ordersObject = res;
         console.log(ordersObject);
@@ -28,16 +30,70 @@ function loadOrder() {
     console.log('done');
 }
 
+function getMenuList(){
+    var request = { requestType:"list" };
+    $.post('./menuItem', request).done(function(res){
+        console.log(res);
+        menuList = res;
+        console.log(menuList.menuItems.length);
+        menuListLength = menuList.menuItems.length;
+        console.log(menuListLength);
+    })
+}
+
 function displayOrders(data){
         var templater = $('#rick_orderTemplate').html();
         var htmler = Mustache.to_html(templater, data);
         $('#rick_orderList').html(htmler);
     };
 
-function createTicket(){
-console.log("start > createTicket");
+function displayOrders(data){
+    var templater = $('#rick_orderTemplate').html();
+    var htmler = Mustache.to_html(templater, data);
+    $('#rick_orderList').html(htmler);
+};
+
+function createNewTicket(){
 
 }
+
+function createTicket(){
+console.log("start > createTicket");
+getMenuList();
+
+var formHTML = '';
+    $('#formTitle').html('Add New Ticket');
+    formHTML += '<table>';
+    formHTML += '<tr><td>ticketStatusId: </td><td><input id="ticketStatusId" type="text" /></td></tr>';
+    formHTML += '<tr><td>employeeId: </td><td><input id="employeeId" type="text" /></td></tr>';
+    formHTML += '<tr><td>customization: </td><td><input id="customization" type="text" /></td></tr>';
+
+    for (i=0 ; i < menuList.menuItems.length ; i++){
+        formHTML += '<tr><td><label class="radio"><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >'+ menuList.menuItems[0].title +'</label></td></tr>'
+        console.log("first");
+    }
+    formHTML += '</table>';
+        console.log("second");
+
+    $('#formContent').html(formHTML);
+    $('#formModel').modal('show');
+adjustOptions();
+}
+
+function adjustOptions(){
+    for (i=0 ; i < menuListLength ; i++){
+
+        // $('#selectMenu').append($('<option>', {
+        //     value: menuList.menuItems[i].title,
+        //     text: menuList.menuItems[i].title
+        // }))
+
+        var o = new Option(menuList.menuItems[i].title, menuList.menuItems[i].title);
+        /// jquerify the DOM object 'o' so we can use the html method
+        $(o).html("option text");
+        $("#selectMenu").append(o);
+    }
+};
 
 function updateOrder(currentOrderId){
 console.log("start > updateOrder");
@@ -57,7 +113,6 @@ var formHTML = '';
     formHTML += '<tr><td>payment: </td><td><input id="payment" type="text" value="'+ currentOrder.payment +'" /></td></tr>';
     formHTML += '<tr><td>tip: </td><td><input id="tip" type="text" value="'+ currentOrder.tip +'"  /></td></tr>';
     formHTML += '<tr><td>employeeId: </td><td><input id="employeeId" type="text" value="'+ currentOrder.employeeId +'"  /></td></tr>'
-    formHTML += '<tr><td>customization: </td><td><input id="customization" type="text" value="'+ currentOrder.customization +'" /></td></tr>';
     formHTML += '</table>';
 
     $('#formContent').html(formHTML);
@@ -72,7 +127,6 @@ var formHTML = '';
             "payment": $('#payment').val(),
             "tip": $('#tip').val(),
             "employeeId": $('#employeeId').val(),
-            "customization": $('#customization').val(),
             "tickets":""
         }
     

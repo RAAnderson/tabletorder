@@ -57,28 +57,14 @@
 		<div id="orderContainer">
 			<h1>Orders</h1>
             <button onclick="createOrder()" type="button" class="btn btnCreateOrder">Add New Order</button>
+            <!-- <a href="#myModal" onclick="createTicket()" role="button" class="btn btnCreateOrder" data-toggle="modal">Add Ticket</a> -->
              <!-- Order content -->
-            <!-- <table id="ordersTable">
-                <tr><th>ID</th><th>Table</th><th>Date</th><th>Done</th><th>Paid</th><th></th><th></th></tr>
-                <tr><td>103518648648646</td><td>A</td><td>04/13/2013</td><td><input type="checkbox" /></td><td><input type="checkbox" /></td><td><button type="button" class="btn updateEmployee">Make Order Receipt</button></td><td>
-<div class="btn-group"><button type="button" class="btn updateEmployee">Update</button><button onclick="cancelEmployee()" type="button" class="btn cancelEmployee">Delete</button></div></td></tr>
-                <tr><td>103518648648647</td><td>B</td><td>04/13/2013</td><td><input type="checkbox" /></td><td><input type="checkbox" /></td><td><button type="button" class="btn updateEmployee">Make Order Receipt</button></td><td>
-                    <div class="btn-group"><button type="button" class="btn updateEmployee">Update</button><button onclick="cancelEmployee()" type="button" class="btn cancelEmployee">Delete</button></div></td></tr>
-            </table> 
-
-// <table>
-								// 	<tr>
-								// 		<td>{{menuItemId}}</td>
-								// 		<td>{{title}}</td>
-								// 		<td>{{foodType}}</td>
-								// 	</tr>
-								// </table>
-
-        -->
+			<!-- <td><a href="#myModal" onclick="createNewTicket()" role="button" class="btn btnCreateOrder" data-toggle="modal">Add Ticket</a></td> -->
             <!-- --------------------------------------------------------------------- -->
             <!-- <table id="OrderContainer"> -->
             <br>
             <br>
+
             	<table id="rick_orderList" class="table table-striped">
             		
             	</table>
@@ -124,6 +110,36 @@
 
             <!-- </table> -->
             <!-- --------------------------------------------------------------------- -->
+
+			    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-header">
+				    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				    <h3 id="myModalLabel">Modal header</h3>
+				  </div>
+				  <div class="modal-body">
+
+				  	<table>
+						<tr><td>ticketStatusId: </td><td><input id="ticketStatusId" type="text" /></td></tr>
+						<tr><td>employeeId: </td><td><input id="employeeId" type="text" /></td></tr>
+						<tr><td>customization: </td><td><input id="customization" type="text" /></td></tr>
+						<tr><td>MenuItem: </td><td><select id="selectMenu"></select></td></tr>
+    				</table>
+				    
+				  	<script id="rick_orderTemplate" type="text/template">
+				  		<table>
+						<tr><td>ticketStatusId: </td><td><input id="ticketStatusId" type="text" /></td></tr>
+						<tr><td>employeeId: </td><td><input id="employeeId" type="text" /></td></tr>
+						<tr><td>customization: </td><td><input id="customization" type="text" /></td></tr>
+						<tr><td>MenuItem: </td><td><select id="selectMenu"></select></td></tr>
+    					</table>
+				  	</script>
+
+				  </div>
+				  <div class="modal-footer">
+				    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+				    <button class="btn btn-primary">Save changes</button>
+				  </div>
+				</div>
 
         </div>
 		<!-- Tables -->
