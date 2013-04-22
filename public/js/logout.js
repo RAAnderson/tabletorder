@@ -6,5 +6,7 @@ function loadLogout() {
 };
 
 $('#btnLoginPage').click(function () {
-    loadLogin()
+    loadLogin();
+    $('#loginUsername').val('');
+    $('#loginPassword').val('');
 });

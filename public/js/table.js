@@ -1,31 +1,33 @@
 ﻿var tableContainer = $('#tablesContainer');
-var tableNumber;
 var tablesjson;
 
 function loadTables() {
     var table;
-    var data = {"requestType":"list",};
+    var data = {"requestType":"list"};
     resetAll();
     displayAjaxLoader();
     tableContainer.html('<h1>Tables</h1>');
     tableContainer.append('<button onclick="createTable()" type="button" class="btn btnCreateTable">Add New Table</button>');
+
     $.post('./table', data).done(function (json) {
-        var tablesHTML = '';
         tablesjson = json;
-        console.log(table);
-        tablesHTML += '<ul id="tables">';
+        tablesHTML = '<ul id="tables">';
         for (var i = 0; i < tablesjson.tables.length; i++) {
             tablesHTML += '<li>';
+            tablesHTML += '<a onclick="displayTableInfo(' + i + ')" href="#">' + tablesjson.tables[i].tableId + '</a>';
+            tablesHTML += '<button onclick="deleteTable('+i+')" type="button" class="btn deleteTable">Delete</button>';
+            tablesHTML += '<div id="tableInfo'+i+'" class="tableInfo">';
             tablesHTML += '<table>';
             tablesHTML += '<tr><td>Table: </td><td>' + tablesjson.tables[i].tableId + '</td></tr>';
-            tablesHTML += '<tr><td>Location: </td><td>' + tablesjson.tables[i].location + '</td></tr>'
+            tablesHTML += '<tr><td>Location: </td><td>' + tablesjson.tables[i].location + '</td></tr>';
             tablesHTML += '<tr><td>Number of seats: </td><td>' + tablesjson.tables[i].totalSeats + '</td></tr>';
             tablesHTML += '</table>';
-            tablesHTML += '<div class="btn-group"><button onclick="updateTable('+i+')" type="button" class="btn updateTable">Update</button><button onclick="deleteTable('+i+')" type="button" class="btn deleteTable">Delete</button></div><div class="clear"></div>';
+            tablesHTML += '<button onclick="updateTable(' + i + ')" type="button" class="btn updateTable">Update</button>';
+            tablesHTML += '</div>';
             tablesHTML += '</li>';
-       }
-       tablesHTML += '</ul>';
-       tableContainer.append(tablesHTML);
+        }
+        tablesHTML += '</ul>';
+        tableContainer.append(tablesHTML);
     }).fail(function (jqxhr, textStatus, error) { console.log("Request Failed: " + textStatus + ', ' + error); });
     resetAll();
     tableContainer.slideDown();
@@ -88,7 +90,7 @@ function deleteTable(node) {
     $('#confirmModal').modal('show');
     $('#confirmed').unbind('click');
     $('#confirmed').bind('click', function () {
-        table = {
+        var table = {
             "requestType": "delete",
             "tableId": tablesjson.tables[node].tableId
         }
@@ -97,4 +99,9 @@ function deleteTable(node) {
         }).fail(function (jqxhr, textStatus, error) { console.log("Request Failed: " + textStatus + ', ' + error); });
         $('#confirmModal').modal('hide');
     });
+}
+
+function displayTableInfo(node) {
+    $("#tableInfo" + node).toggle();
+    return false;
 }

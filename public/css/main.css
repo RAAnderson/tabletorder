@@ -25,6 +25,10 @@ body {padding-top: 60px;}
     width: 100px;
     
 }
+#loginContainer .alert { margin-top:20px; }
+#loginContainer .alert button {
+    width:20px;
+}
 
 /* logout */
 #logoutContainer {
@@ -68,15 +72,34 @@ body {padding-top: 60px;}
 .empInfo label{font-size: 18px;margin: 4px;}
 .userCInfo label{font-size: 18px;margin: 4px;}
 .employeeCForm img {height:100px;}
+.btnPassword{ margin-top:10px;}
 
 /* Order */
 #ordersTable{margin-top: 20px;}
 ordersTable tr td{padding:10px;}
+.menuItemForm{ display:none;}
+/* Menu Item */
+#MenuItem {
+	list-style:none;
+	font-size: 20px;
+    margin-top:20px;
+    border: 1px #e5e5e5 solid;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+#MenuItem li {border-bottom:1px #e5e5e5 solid;
+ padding:10px 10px 15px 10px;
+}
+#MenuItem li .btn-group {
+	float:right;
+}
 
 /* tables */
 #tables {
 	list-style:none;
 	font-size: 20px;
+    margin-top: 20px;
 }
 #tables li {border-bottom:1px #e5e5e5 solid;
  padding:10px 10px 15px 10px;
@@ -89,3 +112,5 @@ ordersTable tr td{padding:10px;}
 #tables li .btn-group {
 	float:right;
 }
+.tableInfo { display:none; margin: 10px; padding:10px; }
+.deleteTable { float: right;}
