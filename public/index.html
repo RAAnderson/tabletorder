@@ -93,30 +93,31 @@
 									<td>{{tableId}}<td>
 									<td>{{status}}<td>
 									<td>{{cost}}<td>
-									<td><button onclick="" class="btn" type="button">View Tickets</button></td>
-									<td><button onclick="" class="btn" type="button">Add Ticket</button></td>
-									<td><button onclick="" class="btn" type="button">Update</button></td>
+									<td><button onclick="createTicket()" class="btn" type="button">Add Ticket</button></td>
+									<td><button onclick="updateOrder('{{_id}}')" class="btn" type="button">Update Order</button></td>
 									<td><button onclick="deleteOrder('{{_id}}')" class="btn" type="button">Delete</button></td>
-									<td>
-										<tr>
-											<th>status</th>
-											<th>employee</th>
-											<th>customization</th>
-											<th>menuItem</th>
-
-										</tr>
-										{{#tickets}}
+									<div>
+										<td>
 											<tr>
-												<td>{{ticketStatusId}}</td>
-												<td>{{employeeId}}</td>
-												<td>{{customization}}</td>
-												<td>{{menuItem.title}}</td>
-											</tr>
-										{{/tickets}}
-									</td>
-								</tr>
-								
+												<th>status</th>
+												<th>employee</th>
+												<th>customization</th>
+												<th>menuItem</th>
 
+											</tr>
+											{{#tickets}}
+												<tr>
+													<td>{{ticketStatusId}}</td>
+													<td>{{employeeId}}</td>
+													<td>{{customization}}</td>
+													<td>{{menuItem.title}}</td>
+													<td><button onclick="" class="btn" type="button">Update Ticket</button></td>
+													<td><button onclick="" class="btn" type="button">Delete</button></td>
+												</tr>
+											{{/tickets}}
+										</td>
+									</div>
+								</tr>
 					{{/orders}}	
 
 				</script>
