@@ -64,7 +64,7 @@ function updateTable(node) {
     var tableHTML = '';
     $('#formTitle').html('Update Table');
     formHTML += '<table>';
-    formHTML += '<tr><td>Table Name: </td><td><input id="tableName" type="text" value="' + tablesjson.tables[node].tableId + '"/></td></tr>';
+    formHTML += '<tr><td>Table Name: </td><td>' + tablesjson.tables[node].tableId + '</td></tr>';
     formHTML += '<tr><td>Location: </td><td><input id="tableLocation" type="text" value="' + tablesjson.tables[node].location + '"/></td></tr>'
     formHTML += '<tr><td>Number of seats: </td><td><input id="numOfSeats" type="text" value="' + tablesjson.tables[node].totalSeats + '"/></td></tr>';
     formHTML += '</table>';
@@ -74,7 +74,7 @@ function updateTable(node) {
     $('#saveForm').bind('click', function () {
         tableUpdate = {
             "requestType": "update",
-            "tableId": $('#tableName').val(),
+            "tableId": tablesjson.tables[node].tableId,
             "location": $('#tableLocation').val(),
             "totalSeats": $('#numOfSeats').val()
         }
