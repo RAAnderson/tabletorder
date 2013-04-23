@@ -17,7 +17,6 @@
 var ordersObject = "";
 var currentOrder = "";
 var menuList = "";
-var menuListLength = "";
 
 function loadOrder() {    
     $.post('./order', data).done(function (res) {
@@ -33,11 +32,9 @@ function loadOrder() {
 function getMenuList(){
     var request = { requestType:"list" };
     $.post('./menuItem', request).done(function(res){
-        console.log(res);
         menuList = res;
-        console.log(menuList.menuItems.length);
-        menuListLength = menuList.menuItems.length;
-        console.log(menuListLength);
+
+        createTicketAgain(res.menuItems.length);
     })
 }
 
@@ -58,42 +55,40 @@ function createNewTicket(){
 }
 
 function createTicket(){
+// var menuListCount = getMenuList();
 getMenuList();
+// createTicketAgain();
 
-var formHTML = '';
+};
+
+function createTicketAgain(menuListCount){
+    var formHTML = '';
     $('#formTitle').html('Add New Ticket');
     formHTML += '<table>';
     formHTML += '<tr><td>ticketStatusId: </td><td><input id="ticketStatusId" type="text" /></td></tr>';
     formHTML += '<tr><td>employeeId: </td><td><input id="employeeId" type="text" /></td></tr>';
     formHTML += '<tr><td>customization: </td><td><input id="customization" type="text" /></td></tr>';
 
-    for (i=0 ; i < menuList.menuItems.length ; i++){
+    for (i=0 ; i < menuListCount ; i++){
         formHTML += '<tr><td><label class="radio"><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >'+ menuList.menuItems[0].title +'</label></td></tr>'
-        console.log("first");
     }
     formHTML += '</table>';
-        console.log("second");
 
     $('#formContent').html(formHTML);
     $('#formModel').modal('show');
-adjustOptions();
+adjustOptions(menuListCount);
 
 }
 
-function adjustOptions(){
-    for (i=0 ; i < menuListLength ; i++){
-
-        // $('#selectMenu').append($('<option>', {
-        //     value: menuList.menuItems[i].title,
-        //     text: menuList.menuItems[i].title
-        // }))
+function adjustOptions(menuListCount){
+    for (i=0 ; i < menuListCount ; i++){
 
         var o = new Option(menuList.menuItems[i].title, menuList.menuItems[i].title);
         /// jquerify the DOM object 'o' so we can use the html method
         $(o).html("option text");
         $("#selectMenu").append(o);
     }
-};
+}
 
 function updateOrder(currentOrderId){
 console.log("start > updateOrder");
