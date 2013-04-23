@@ -120,7 +120,8 @@ var formHTML = '';
     $('#saveForm').unbind('click');
     $('#saveForm').bind('click', function () {
         orderCreate = {
-            "requestType": "create",
+            "requestType": "update",
+            "_id": currentOrderId,
             "tableId": $('#tableName').val(),
             "status": $('#status').val(),
             "cost": $('#cost').val(),
