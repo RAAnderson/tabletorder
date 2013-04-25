@@ -8,9 +8,9 @@ var employeeSchema = new Schema({
 	, firstName : 	{ type: String, trim: true }
 	, lastName : 	{ type: String, trim: true }
 	, address : 	{ type: String }
-	, zip : 		{ type: Number }
+	, zip : 		{ type: String }
 	, state : 		{ type: String, trim: true }
-	, phoneNumber : { type: Number, trim: true }
+	, phoneNumber : { type: String, trim: true }
 	, username : 	{ type: String, trim: true }
 	, password : 	{ type: String, trim: true }
 });
