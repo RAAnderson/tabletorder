@@ -31,7 +31,6 @@ function loadTables() {
     }).fail(function (jqxhr, textStatus, error) { console.log("Request Failed: " + textStatus + ', ' + error); });
     resetAll();
     tableContainer.slideDown();
-    console.log('done');
 }
 
 function createTable() {

@@ -8,6 +8,7 @@ function resetAll() {
     $('#loginContainer').slideUp();
     $('#logoutContainer').slideUp();
     $('#orderContainer').slideUp();
+    $('#receiptContainer').slideUp();
 	$('#tablesContainer').slideUp();
 }
 

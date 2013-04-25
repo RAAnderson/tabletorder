@@ -143,118 +143,21 @@
 				</div>
 
         </div>
-		<!-- Tables -->
-		<div id="tablesContainer">
-			<h1>Tables</h1>
-			<ul id="tables">
-				<!-- table list -->
-			</ul>
-			</div>
 		<!-- Menu Items -->
 		<div id="itemsContainer">
 			<h1>Menu Items</h1>
-			<div id="items">
-				<div class="accordion" id="accordion3">
-				  <div class="accordion-group">
-					<div class="accordion-heading">
-					  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Artichoke Dip</a>
-					</div>
-					<div id="collapseOne" class="accordion-body collapse in">
-					  <div class="accordion-inner">
-					  <table>
-					  <tr>
-						<td style="width: 100px;">Name: </td>
-						<td style="padding-right: 100px"><input type="text" data-provide="typeahead" value="Artichoke Dip" /></td>
-						<td>Price: </td><td>$<input type="text" style="width: 100px" data-provide="typeahead" value="8.25" /></td>
-					</tr>
-					<tr>
-						<td style="width: 100px;">Category: </td><td><select>
-											  <option value="Appetizers" selected>Appetizers</option>
-											  <option value="Sandwiches">Sandwiches</option>
-											  <option value="Wraps">Wraps</option>
-											  <option value="Salads">Salads</option>
-											  <option value="Soups">Soups</option>
-											  <option value="Pizza">Pizza</option>
-											  <option value="Desserts">Desserts</option>
-											  <option value="Drinks">Drinks</option>
-											  <option value="Others">Other</option>
-											</select></td>
-						</tr>
-						<tr><td>Description:</td><td><textarea name="comments" cols="100" rows="3">Served with toasted pita points</textarea></td>
-						</td></tr>
-						</table>
-						<div class="btn-group"><button type="button" class="btn">Save</button><button type="button" class="btn">Delete</button></div>
-					  </div>
-					</div>
-				  </div>
-				  <div class="accordion-group">
-					<div class="accordion-heading">
-					  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">Bruschetta</a>
-					</div>
-					<div id="collapseTwo" class="accordion-body collapse">
-					  <div class="accordion-inner">
-						 <table>
-					  <tr>
-						<td style="width: 100px;">Name: </td>
-						<td style="padding-right: 100px"><input type="text" data-provide="typeahead" value="Bruschetta" /></td>
-						<td>Price: </td><td>$<input type="text" style="width: 100px" data-provide="typeahead" value="8.00" /></td>
-					</tr>
-					<tr>
-						<td style="width: 100px;">Category: </td><td><select>
-											  <option value="Appetizers" selected>Appetizers</option>
-											  <option value="Sandwiches">Sandwiches</option>
-											  <option value="Wraps">Wraps</option>
-											  <option value="Salads">Salads</option>
-											  <option value="Soups">Soups</option>
-											  <option value="Pizza">Pizza</option>
-											  <option value="Desserts">Desserts</option>
-											  <option value="Drinks">Drinks</option>
-											  <option value="Others">Other</option>
-											</select></td>
-						</tr>
-						<tr><td>Description:</td><td><textarea name="comments" cols="100" rows="3">6 slices of Baguette served with fresh tomato, Basil and fresh Mozzarella for topping</textarea></td>
-						</td></tr>
-						</table>
-						<div class="btn-group"><button type="button" class="btn">Save</button><button type="button" class="btn">Delete</button></div>
-					  </div>
-					</div>
-				  </div>
-				  <div class="accordion-group">
-					<div class="accordion-heading">
-					  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseThree">Hummus</a>
-					</div>
-					<div id="collapseThree" class="accordion-body collapse">
-					  <div class="accordion-inner">
-						 <table>
-					  <tr>
-						<td style="width: 100px;">Name: </td>
-						<td style="padding-right: 100px"><input type="text" data-provide="typeahead" value="Hummus" /></td>
-						<td>Price: </td><td>$<input type="text" style="width: 100px" data-provide="typeahead" value="7.75" /></td>
-					</tr>
-					<tr>
-						<td style="width: 100px;">Category: </td><td><select>
-											  <option value="Appetizers" selected>Appetizers</option>
-											  <option value="Sandwiches">Sandwiches</option>
-											  <option value="Wraps">Wraps</option>
-											  <option value="Salads">Salads</option>
-											  <option value="Soups">Soups</option>
-											  <option value="Pizza">Pizza</option>
-											  <option value="Desserts">Desserts</option>
-											  <option value="Drinks">Drinks</option>
-											  <option value="Others">Other</option>
-											</select></td>
-						</tr>
-						<tr><td>Description:</td><td><textarea name="comments" cols="100" rows="3">Flavorful in house Hummus served with toasted pita points</textarea></td>
-						</td></tr>
-						</table>
-						<div class="btn-group"><button type="button" class="btn">Save</button><button type="button" class="btn">Delete</button></div>
-					  </div>
-					</div>
-				  </div>
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Create New Menu Item</button>
-				</div>
-			</div>
-			</div>
+            <!-- Menu Items Content -->
+	    </div>
+        <!-- Receipt -->
+        <div id="receiptContainer">
+			<h1>Receipt</h1>
+            <!-- recieptContent -->
+	    </div>
+		<!-- Tables -->
+		<div id="tablesContainer">
+			<h1>Tables</h1>
+            <!-- Table Content -->
+		</div>
 	</div>
     <!-- Alert Confirm Box -->
     <div id="formModel" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -291,10 +194,11 @@
     <script src="js/login.js"></script>
     <script src="js/logout.js"></script>
     <script src="js/order.js"></script> 
+    <script src="js/receipt.js"></script>
     <script src="js/table.js"></script>
 	<script type="text/javascript">
 	    // var login = false;
-	    var login = true;
+	    var login = false;
 	    if (login) {
 	        loadLogin();
 	    } else {

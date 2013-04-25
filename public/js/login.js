@@ -28,7 +28,7 @@ $('#btnLogin').click(function () {
         }
     }).fail(function (jqxhr, textStatus, error) { console.log("Request Failed: " + textStatus + ', ' + error); });*/
 
-    if (user.username === "admin" && user.password === "admin") {
+    if ((user.username === "admin" || user.username === "john") && user.password === "admin") {
         $('.navbar').slideDown();
         login = true;
         loadDashboard();

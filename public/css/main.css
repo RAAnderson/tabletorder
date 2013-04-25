@@ -9,6 +9,7 @@ body {padding-top: 60px;}
 #loginContainer {display: none;}
 #logoutContainer {display: none;}
 #orderContainer {display: none;}
+#receiptContainer {display:none}
 #tablesContainer {display:none}
 
 /* login */
@@ -114,3 +115,23 @@ ordersTable tr td{padding:10px;}
 }
 .tableInfo { display:none; margin: 10px; padding:10px; }
 .deleteTable { float: right;}
+
+/* Receipt */
+#receiptContainer { font-family:Calibri;font-size:16px;}
+#receiptContainer h1 {font-size:32px;}
+#receiptContainer table {width:100%}
+#receiptContainer { float : right;}
+
+/* Dashboard */
+#dash {
+	list-style:none;
+	font-size: 20px;
+    margin-top:20px;
+    border: 1px #e5e5e5 solid;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+#dash ul {display:none;}
+#dash .btn-group {float:right;}
+#dash li {border-bottom:1px #e5e5e5 solid;padding:10px 10px 15px 10px;list-style:none;}
