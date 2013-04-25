@@ -205,17 +205,33 @@ function updateDashTicket(orderNode, node) {
 }
 
 function deleteDashTicket(orderNode, node) {
-    $('#confirmContent').html('Are you sure you want to delete ticket ' + orderjson.orders[orderNode].tickets[node].title + '?');
+    $('#confirmContent').html('Are you sure you want to delete ticket for ' + orderjson.orders[orderNode].tickets[node].menuItem.title + '?');
     $('#confirmModal').modal('show');
     $('#confirmed').unbind('click');
     $('#confirmed').bind('click', function () {
-        var order = {
-            "requestType": "delete",
-            "_id": orderjson.orders[orderNode].tickets[node].
-        }
-        $.post('./order', order).done(function (json) {
-            loadDashboard();
+        orderjson.orders[orderNode].tickets.remove(node, node);
+
+        var orderUpdate = {
+            "requestType": "update"
+            , "_id": orderjson.orders[orderNode]._id
+            , "orderId": orderjson.orders[orderNode].orderId
+            , "tableId": orderjson.orders[orderNode].tableId
+            , "employeeId": orderjson.orders[orderNode].employeeId
+            , "cost": orderjson.orders[orderNode].cost
+            , "payment": orderjson.orders[orderNode].payment
+            , "tip": orderjson.orders[orderNode].tip
+            , "status": orderjson.orders[orderNode].status
+            , tickets: orderjson.orders[orderNode].tickets
+        };
+        $.post('./order', orderUpdate).done(function (json) {
+            $('#o' + orderNode + 't' + node).slideUp();
         }).fail(function (jqxhr, textStatus, error) { console.log("Request Failed: " + textStatus + ', ' + error); });
         $('#confirmModal').modal('hide');
     });
 }
+
+Array.prototype.remove = function (from, to) {
+    var rest = this.slice((to || from) + 1 || this.length);
+    this.length = from < 0 ? this.length + from : from;
+    return this.push.apply(this, rest);
+};
