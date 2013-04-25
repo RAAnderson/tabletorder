@@ -21,9 +21,9 @@ function displayReceipt(id) {
         }
         rHTML += '</table><hr />';
         rHTML += '<table>';
-        rHTML += '<tr><td>Subtotal</td><td style="text-align:right">$'+totalAmount+'</td></tr>';
-        rHTML += '<tr><td>Taxes</td><td style="text-align:right">$'+ (Math.round((totalAmount*0.075) * 100) / 100)+'</td></tr>';
-        rHTML += '<tr><td>Total</td><td style="text-align:right">$'+(totalAmount+(Math.round((totalAmount*0.075) * 100) / 100))+'</td></tr>';
+        rHTML += '<tr><td>Subtotal</td><td style="text-align:right">$' + (totalAmount.toFixed(2)) + '</td></tr>';
+        rHTML += '<tr><td>Taxes</td><td style="text-align:right">$'+ ((Math.round((totalAmount*0.075) * 100) / 100).toFixed(2))+'</td></tr>';
+        rHTML += '<tr><td>Total</td><td style="text-align:right">$'+((totalAmount+(totalAmount*0.075)).toFixed(2))+'</td></tr>';
         rHTML += '<tr><td style="font-size:24px">Tip</td><td style="text-align:right">__________</td></tr>';
         rHTML += '<tr><td style="font-size:24px">Grand Total</td><td style="text-align:right">__________</td></tr>';
         rHTML += '<tr><td style="font-size:24px">Signature</td><td style="text-align:right">________________________</td></tr>';
