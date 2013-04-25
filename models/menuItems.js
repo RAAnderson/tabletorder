@@ -8,7 +8,7 @@ var menuItemSchema = new Schema ({
 	, title : 		{ type: String, trim: true }
 	, description : { type: String }
 	, price : 		{ type: Number }
-	, menuStatus : 	{ type: Number } 	// predefined codes that label status, ex: 1 = live, 4 = out of stock
+	, menuStatus : 	{ type: String } 	// predefined codes that label status, ex: 1 = live, 4 = out of stock
 	, menuType : 	{ type: String, trim: true }  //breakfast lunch dinner specific items
 	, customSeason :{ type: String }	//Used for spring only, summer only type items
 	, ingredients : { type: String } 	//long list of ingredients

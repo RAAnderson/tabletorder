@@ -12,7 +12,7 @@ var employeeSchema = new Schema({
 	, state : 		{ type: String, trim: true }
 	, phoneNumber : { type: Number, trim: true }
 	, username : 	{ type: String, trim: true }
-	, password : 	{ type: Number, trim: true }
+	, password : 	{ type: String, trim: true }
 });
 
 var employee = mongoose.model('employee', employeeSchema);

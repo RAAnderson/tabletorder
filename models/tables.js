@@ -8,7 +8,7 @@ var mongoose = require('mongoose')
 var tableSchema = new Schema({
 	tableId : 		{ type: String }
 	, location : 	{ type: String }
-	, totalSeats : 	{ type: Number }
+	, totalSeats : 	{ type: String }
 });
 
 var table = mongoose.model('table', tableSchema);
