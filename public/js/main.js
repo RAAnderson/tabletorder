@@ -18,7 +18,7 @@ $('#home').click(function () {
     loadDashboard();
 });
 $('#navOrder').click(function () {
-	loadOrder();
+    loadDashboard();
 });
 $('#navTables').click(function () {
 	loadTables();
