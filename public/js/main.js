@@ -9,7 +9,8 @@ function resetAll() {
     $('#logoutContainer').slideUp();
     $('#orderContainer').slideUp();
     $('#receiptContainer').slideUp();
-	$('#tablesContainer').slideUp();
+    $('#tablesContainer').slideUp();
+    $('body').css('background-color', 'white');
 }
 
 /* Menu Click Events */

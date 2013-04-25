@@ -117,10 +117,9 @@ ordersTable tr td{padding:10px;}
 .deleteTable { float: right;}
 
 /* Receipt */
-#receiptContainer { font-family:Calibri;font-size:16px;}
+#receiptContainer { font-family:Calibri; font-size:16px;}
 #receiptContainer h1 {font-size:32px;}
 #receiptContainer table {width:100%}
-#receiptContainer { float : right;}
 
 /* Dashboard */
 #dash {

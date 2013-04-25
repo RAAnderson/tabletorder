@@ -15,7 +15,7 @@ function loadDashboard() {
         orderjson = json;
         for (var i = 0; i < orderjson.orders.length; i++) {
             dashHTML += '<li>';
-            dashHTML += '<div class="btn-group"><button onclick="updateDash(' + i + ')" type="button" class="btn updateDash">Update</button><button onclick="displayReceipt(' + orderjson.orders[i]._id + ')" type="button" class="btn displayReceipte">Receipt</button><button onclick="deleteDash(' + i + ')" type="button" class="btn deleteDash">Done</button></div>';
+            dashHTML += '<div class="btn-group"><button onclick="updateDash(' + i + ')" type="button" class="btn updateDash">Update</button><button onclick="displayReceipt(\'' + orderjson.orders[i]._id + '\')" type="button" class="btn displayReceipte">Receipt</button><button onclick="deleteDash(' + i + ')" type="button" class="btn deleteDash">Done</button></div>';
             dashHTML += 'ID: <a onclick="displayOrderInfo(' + i + ')" href="#">' + orderjson.orders[i]._id + '</a>';
             dashHTML += '<br />Table: ' + orderjson.orders[i].tableId;
             dashHTML += '<br />Date: ' + convertDate(orderjson.orders[i].date)
@@ -115,7 +115,6 @@ function updateDash(node) {
             , "payment" : orderjson.orders[node].payment
             , "tip" : orderjson.orders[node].tip
             , "status" : orderjson.orders[node].status
-            , "date": orderjson.orders[node].date
             , tickets: orderjson.orders[node].tickets
         };
         $.post('./order', orderUpdate).done(function (json) {
@@ -141,7 +140,8 @@ function loadMenuItemsForOrders() {
 
 function convertDate(date) {
     var orderDate = new Date(date);
-    var simplyDate = orderDate.getMonth() + '-' + orderDate.getDate() + '-' + orderDate.getFullYear();
+    var simplyDate = orderDate.toUTCString();
+    //var simplyDate = orderDate.getMonth() + '-' + orderDate.getDate() + '-' + orderDate.getFullYear() +'       '+ orderDate.getHours()+':'+orderDate.getMinutes()+':'+orderDate.getSeconds();
     return simplyDate;
 }
 
