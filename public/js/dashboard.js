@@ -27,8 +27,16 @@ function loadDashboard() {
             for (var t = 0; t < orderjson.orders[i].tickets.length; t++) {
                 dashHTML += '<li id=o'+i+'t'+t+'>';
                 dashHTML += '<div class="btn-group"><button onclick="updateDashTicket(' + i + ',' + t + ')" type="button" class="btn updateDashTicket">Update</button><button onclick="deleteDashTicket(' + i + ',' + t + ')" type="button" class="btn deleteDashTicket">Delete</button></div>';
-                dashHTML += 'Menu Item: ' + orderjson.orders[i].tickets[t].menuItem.title;
-                dashHTML += '<div>Notes: '+orderjson.orders[i].tickets[t].customization+' </div>';
+                if (!orderjson.orders[i].tickets[t].menuItem.title) {
+                    dashHTML += 'Menu Item: No item';
+                } else {
+                    dashHTML += 'Menu Item: ' + orderjson.orders[i].tickets[t].menuItem.title;
+                }
+                if (!orderjson.orders[i].tickets[t].customization) {
+                    dashHTML += '<div>Notes: </div>';
+                } else {
+                    dashHTML += '<div>Notes: ' + orderjson.orders[i].tickets[t].customization + ' </div>';
+                }
                 dashHTML += '</li>';
             }
             dashHTML += '</ul>';
