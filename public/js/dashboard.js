@@ -187,21 +187,43 @@ function createDashTicket(orderNode) {
 
         }
         $.post('./order', orderUpdate).done(function (json) {
-            //loadDashboard();
-            newestTicket = orderjson.orders[orderNode].tickets.length - 1;
-            dashHTML = '<li>';
-            dashHTML += '<div class="btn-group"><button onclick="updateDashTicket(' + orderNode + ',' + newestTicket + ')" type="button" class="btn updateDashTicket">Update</button><button onclick="deleteDashTicket(' + orderNode + ',' + newestTicket + ')" type="button" class="btn deleteDashTicket">Delete</button></div>';
-            dashHTML += 'Menu Item: ' + orderjson.orders[orderNode].tickets[newestTicket].menuItem.title;
-            dashHTML += '<div>Notes: ' + orderjson.orders[orderNode].tickets[newestTicket].customization + ' </div>';
-            dashHTML += '</li>';
-            $('#tickets'+orderNode).append(dashHTML);
+            loadDashboard();
         }).fail(function (jqxhr, textStatus, error) { console.log("Request Failed: " + textStatus + ', ' + error); });
         $('#formModel').modal('hide');
     });
 }
 
 function updateDashTicket(orderNode, node) {
-    console.log('update');
+    var formHTML = '';
+    $('#formTitle').html('Update Ticket');
+    formHTML += '<table>';
+    formHTML += '<tr><td>Select Menu Item: </td><td>' + orderjson.orders[orderNode].tickets[node].menuItem.title + '</td></tr>';
+    formHTML += '<tr><td>Notes: </td><td><textarea id="ticketCustom" rows="4" cols="30">' + orderjson.orders[orderNode].tickets[node].customization + '</textarea></td></tr>';
+    formHTML += '</table>';
+    $('#formContent').html(formHTML);
+    $('#formModel').modal('show');
+    $('#saveForm').unbind('click');
+    $('#saveForm').bind('click', function () {
+        orderjson.orders[orderNode].tickets[node].customization = $('#ticketCustom').val();
+
+        var orderUpdate = {
+            "requestType": "update"
+            , "_id": orderjson.orders[orderNode]._id
+            , "orderId": orderjson.orders[orderNode].orderId
+            , "tableId": orderjson.orders[orderNode].tableId
+            , "employeeId": orderjson.orders[orderNode].employeeId
+            , "cost": orderjson.orders[orderNode].cost
+            , "payment": orderjson.orders[orderNode].payment
+            , "tip": orderjson.orders[orderNode].tip
+            , "status": orderjson.orders[orderNode].status
+            , tickets: orderjson.orders[orderNode].tickets
+
+        }
+        $.post('./order', orderUpdate).done(function (json) {
+            loadDashboard();
+        }).fail(function (jqxhr, textStatus, error) { console.log("Request Failed: " + textStatus + ', ' + error); });
+        $('#formModel').modal('hide');
+    });
 }
 
 function deleteDashTicket(orderNode, node) {
